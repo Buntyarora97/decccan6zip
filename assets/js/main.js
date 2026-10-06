@@ -709,6 +709,173 @@
     });
   }
 
+  /* ---------- Visitor review dialog and immediate publishing ---------- */
+  const reviewDialog = $('#customerReviewDialog');
+  const reviewForm = $('[data-review-form]');
+  const reviewOpeners = $$('[data-review-open]');
+  const reviewCloseButtons = $$('[data-review-close]');
+  const reviewGrid = $('[data-review-grid]');
+  const reviewEmpty = $('[data-review-empty]');
+  const reviewLive = $('[data-review-live]');
+
+  if (reviewDialog && reviewForm) {
+    const reviewStatus = $('[data-review-status]', reviewForm);
+    const ratingInput = $('[data-review-rating]', reviewForm);
+    const starButtons = $$('[data-review-star]', reviewForm);
+    const photoInput = $('[data-review-photo]', reviewForm);
+    const photoName = $('[data-review-photo-name]', reviewForm);
+    let selectedRating = 0;
+    let returnFocus = null;
+
+    const setRating = value => {
+      selectedRating = value;
+      if (ratingInput) ratingInput.value = value ? String(value) : '';
+      starButtons.forEach(button => {
+        const starValue = Number(button.dataset.reviewStar);
+        button.setAttribute('aria-checked', String(starValue === value));
+        button.tabIndex = starValue === (value || 1) ? 0 : -1;
+        button.classList.toggle('is-selected', value > 0 && starValue <= value);
+      });
+    };
+
+    const closeReviewDialog = () => {
+      if (reviewDialog.open) reviewDialog.close();
+    };
+
+    reviewOpeners.forEach(button => {
+      button.addEventListener('click', () => {
+        returnFocus = button;
+        if (reviewStatus) reviewStatus.textContent = '';
+        if (!reviewDialog.open) reviewDialog.showModal();
+        $('#reviewName', reviewForm)?.focus();
+      });
+    });
+    reviewCloseButtons.forEach(button => button.addEventListener('click', closeReviewDialog));
+    reviewDialog.addEventListener('click', event => {
+      if (event.target === reviewDialog) closeReviewDialog();
+    });
+    reviewDialog.addEventListener('close', () => {
+      returnFocus?.focus();
+      returnFocus = null;
+    });
+
+    starButtons.forEach(button => {
+      button.addEventListener('click', () => setRating(Number(button.dataset.reviewStar)));
+      button.addEventListener('keydown', event => {
+        const current = Number(button.dataset.reviewStar);
+        let next = current;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowUp') next = Math.min(5, current + 1);
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') next = Math.max(1, current - 1);
+        else if (event.key === 'Home') next = 1;
+        else if (event.key === 'End') next = 5;
+        else return;
+        event.preventDefault();
+        setRating(next);
+        starButtons[next - 1]?.focus();
+      });
+    });
+
+    photoInput?.addEventListener('change', () => {
+      const file = photoInput.files?.[0];
+      if (photoName) photoName.textContent = file ? `${file.name} · ${(file.size / (1024 * 1024)).toFixed(1)} MB` : 'JPEG, PNG or WebP · up to 5 MB';
+    });
+
+    const buildReviewCard = review => {
+      const card = document.createElement('article');
+      card.className = 'customer-review-card';
+      card.dataset.publicReview = '';
+      card.dataset.reviewId = review.id;
+
+      const topline = document.createElement('div');
+      topline.className = 'customer-review-card__topline';
+      const stars = document.createElement('span');
+      stars.className = 'customer-review-card__stars';
+      stars.setAttribute('role', 'img');
+      stars.setAttribute('aria-label', `${review.rating} out of 5 stars`);
+      stars.textContent = '★'.repeat(review.rating);
+      const remainingStars = document.createElement('span');
+      remainingStars.setAttribute('aria-hidden', 'true');
+      remainingStars.textContent = '☆'.repeat(5 - review.rating);
+      stars.append(remainingStars);
+      const time = document.createElement('time');
+      time.dateTime = review.created_at;
+      time.textContent = review.date_label;
+      topline.append(stars, time);
+
+      const quote = document.createElement('blockquote');
+      quote.textContent = review.text;
+      const author = document.createElement('p');
+      author.className = 'customer-review-card__author';
+      author.textContent = review.name;
+      card.append(topline, quote);
+      if (review.image_url) {
+        const image = document.createElement('img');
+        image.className = 'customer-review-card__image';
+        image.src = review.image_url;
+        image.alt = `Photo shared with ${review.name}'s review`;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        card.append(image);
+      }
+      card.append(author);
+      return card;
+    };
+
+    reviewForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!selectedRating) {
+        if (reviewStatus) reviewStatus.textContent = 'Please choose a star rating.';
+        starButtons[0]?.focus();
+        return;
+      }
+      if (!reviewForm.reportValidity()) return;
+
+      const submit = $('button[type="submit"]', reviewForm);
+      const originalLabel = submit?.innerHTML || '';
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = 'Publishing…';
+      }
+      if (reviewStatus) reviewStatus.textContent = '';
+
+      try {
+        const response = await fetch(reviewForm.action, {
+          method: 'POST',
+          body: new FormData(reviewForm),
+          headers: { 'X-Requested-With': 'fetch' },
+        });
+        const data = await response.json();
+        if (!response.ok || !data.ok) {
+          if (reviewStatus) reviewStatus.textContent = data.message || 'Your review could not be submitted. Please try again.';
+          return;
+        }
+        if (data.review && reviewGrid) {
+          reviewGrid.prepend(buildReviewCard(data.review));
+          reviewGrid.hidden = false;
+          if (reviewEmpty) reviewEmpty.hidden = true;
+          if (reviewLive) reviewLive.textContent = 'Your review is now visible on the page.';
+        }
+        reviewForm.reset();
+        setRating(0);
+        if (photoName) photoName.textContent = 'JPEG, PNG or WebP · up to 5 MB';
+        closeReviewDialog();
+        if (data.review) {
+          $('[data-review-id="' + CSS.escape(data.review.id) + '"]', reviewGrid)?.scrollIntoView({
+            behavior: prefersReduced ? 'auto' : 'smooth',
+            block: 'center',
+          });
+        }
+      } catch (error) {
+        if (reviewStatus) reviewStatus.textContent = 'Something went wrong. Please try again.';
+      } finally {
+        if (submit) {
+          submit.disabled = false;
+          submit.innerHTML = originalLabel;
+        }
+      }
+    });
+  }
+
   /* ---------- Services directory search ---------- */
   const servicesRoot = $('.services-directory');
   if (servicesRoot) {

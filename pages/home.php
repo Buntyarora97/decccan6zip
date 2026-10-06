@@ -1,12 +1,14 @@
 <?php
 /**
- * Homepage — 13 sections (header/footer/cookie/mobile-bar excluded).
+ * Homepage — 14 sections (header/footer/cookie/mobile-bar excluded).
  */
 $serviceCatalog = dm_services();
 $superSpecialities = $serviceCatalog['clinical']['groups']['Super Specialities'];
 $doctors = dm_doctors();
 $articles = dm_articles();
 $articleSlice = array_slice($articles, 0, 3, true);
+require_once __DIR__ . '/../includes/reviews.php';
+$publicReviews = dm_public_reviews(9);
 $heroPhotos = [
     [
         'src' => 'assets/img/hospital-shoot/hospital-exterior-garden-view.webp',
@@ -582,20 +584,128 @@ $instagramReels = [
   </div>
 </section>
 
-<!-- ============ SECTION 12: Patient voices ============ -->
-<section class="section">
-  <div class="container">
-    <div class="section__head section__head--center reveal">
-      <span class="eyebrow" style="justify-content:center;">Patient Voices</span>
-      <h2>Stories from our patients</h2>
+<!-- ============ SECTION 12: Google reviews ============ -->
+<section class="section patient-voices-section" id="google-reviews">
+  <div class="container patient-voices-layout">
+    <div class="patient-voices-copy reveal">
+      <div class="section__head">
+        <span class="eyebrow">Patient Voices</span>
+        <h2>Stories from our patients</h2>
+      </div>
+      <p class="lead">Read genuine, unedited Google feedback on the original listing.</p>
+      <?php require __DIR__ . '/../includes/google-reviews-card.php'; ?>
+      <p class="patient-voices__policy"><a href="<?= e(dm_url('testimonials')) ?>" class="btn btn--outline">About our testimonial policy <?= icon('arrow-right', 'icon icon--sm') ?></a></p>
     </div>
-    <p class="lead" style="max-width:640px;margin:0 auto 20px;text-align:center;">Read genuine, unedited feedback directly on Google.</p>
-    <?php require __DIR__ . '/../includes/google-reviews-card.php'; ?>
-    <p style="text-align:center;margin-top:22px;"><a href="<?= e(dm_url('testimonials')) ?>" class="btn btn--outline">About our testimonial policy <?= icon('arrow-right', 'icon icon--sm') ?></a></p>
+    <figure class="patient-voices-photo reveal reveal-delay-1">
+      <?= dm_img('assets/img/hospital-shoot/hospital-exterior-garden-view.webp', 'Deccan Malti Hospital exterior viewed through the garden', 1800, 1200, 'patient-voices-photo__image') ?>
+      <figcaption>
+        <span>Deccan Malti Hospital</span>
+        <strong>Care in Sangli, with your voice at the centre.</strong>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ============ SECTION 13: Blog + final CTA ============ -->
+<!-- ============ SECTION 13: Visitor feedback ============ -->
+<section class="section community-feedback-section" id="share-your-experience">
+  <div class="container">
+    <div class="community-feedback__head">
+      <div class="community-feedback__intro">
+        <span class="eyebrow">Your Experience</span>
+        <h2>Share your feedback</h2>
+        <p class="lead">Visitor reviews appear here as soon as they are submitted. Please keep public feedback free of private medical details.</p>
+      </div>
+      <button class="review-launch-button" type="button" data-review-open aria-haspopup="dialog" aria-controls="customerReviewDialog">
+        <span class="review-launch-button__icon" aria-hidden="true">★</span>
+        <span class="review-launch-button__copy"><strong>Write a review</strong><small>Rate your visit and add a photo</small></span>
+        <span class="review-launch-button__arrow" aria-hidden="true"><?= icon('arrow-right', 'icon icon--sm') ?></span>
+      </button>
+    </div>
+
+    <?php if ($publicReviews): ?>
+    <div class="customer-review-grid" data-review-grid aria-label="Recent visitor reviews">
+      <?php foreach ($publicReviews as $review): ?>
+      <article class="customer-review-card" data-public-review data-review-id="<?= e($review['id']) ?>">
+        <div class="customer-review-card__topline">
+          <span class="customer-review-card__stars" role="img" aria-label="<?= e($review['rating'] . ' out of 5 stars') ?>"><?= e(str_repeat('★', $review['rating'])) ?><span aria-hidden="true"><?= e(str_repeat('☆', 5 - $review['rating'])) ?></span></span>
+          <time datetime="<?= e($review['created_at']) ?>"><?= e($review['date_label']) ?></time>
+        </div>
+        <blockquote><?= nl2br(e($review['text'])) ?></blockquote>
+        <?php if ($review['image_path'] !== ''): ?>
+        <img class="customer-review-card__image" src="<?= e(dm_url($review['image_path'])) ?>" alt="<?= e('Photo shared with ' . $review['name'] . '\'s review') ?>" loading="lazy" decoding="async">
+        <?php endif; ?>
+        <p class="customer-review-card__author"><?= e($review['name']) ?></p>
+      </article>
+      <?php endforeach; ?>
+    </div>
+    <?php else: ?>
+    <div class="review-empty" data-review-empty>
+      <span class="review-empty__star" aria-hidden="true">★</span>
+      <div>
+        <strong>Be the first to share your experience</strong>
+        <p>Your review will show here as soon as you submit it.</p>
+      </div>
+      <button class="btn btn--outline btn--sm" type="button" data-review-open aria-haspopup="dialog" aria-controls="customerReviewDialog">Add feedback</button>
+    </div>
+    <div class="customer-review-grid" data-review-grid aria-label="Recent visitor reviews" hidden></div>
+    <?php endif; ?>
+    <p class="sr-only" data-review-live role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
+</section>
+
+<dialog class="review-dialog" id="customerReviewDialog" aria-labelledby="customerReviewTitle">
+  <div class="review-dialog__panel">
+    <button class="review-dialog__close" type="button" data-review-close aria-label="Close review form">×</button>
+    <span class="eyebrow">Your Experience</span>
+    <h2 id="customerReviewTitle">Write a visitor review</h2>
+    <p class="review-dialog__intro">Your review and any photo you choose to upload will be visible publicly right after you submit.</p>
+
+    <form class="review-form" action="<?= e(dm_url('api/reviews.php')) ?>" method="post" enctype="multipart/form-data" data-review-form>
+      <?= csrf_field() ?>
+      <div class="review-honeypot" aria-hidden="true">
+        <label for="reviewWebsite">Leave this field empty</label>
+        <input id="reviewWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="review-form__field">
+        <label for="reviewName">Your name <span aria-hidden="true">*</span></label>
+        <input id="reviewName" name="name" type="text" maxlength="80" autocomplete="name" required>
+      </div>
+
+      <fieldset class="review-form__field review-form__rating">
+        <legend>Your rating <span aria-hidden="true">*</span></legend>
+        <div class="review-stars" role="radiogroup" aria-label="Choose a star rating">
+          <?php for ($star = 1; $star <= 5; $star++): ?>
+          <button class="review-star" type="button" role="radio" aria-checked="false" aria-label="<?= e($star . ' ' . ($star === 1 ? 'star' : 'stars')) ?>" tabindex="<?= $star === 1 ? '0' : '-1' ?>" data-review-star="<?= e((string) $star) ?>">★</button>
+          <?php endfor; ?>
+        </div>
+        <input type="hidden" name="rating" value="" data-review-rating>
+      </fieldset>
+
+      <div class="review-form__field">
+        <label for="reviewText">Your review <span aria-hidden="true">*</span></label>
+        <textarea id="reviewText" name="review" rows="5" minlength="10" maxlength="1800" required placeholder="Share a few words about your visit. Do not include private medical information."></textarea>
+        <small>10–1,800 characters. Avoid personal or sensitive health details.</small>
+      </div>
+
+      <div class="review-form__field">
+        <label for="reviewPhoto">Add a photo <span class="review-form__optional">(optional)</span></label>
+        <input id="reviewPhoto" name="photo" type="file" accept="image/jpeg,image/png,image/webp" data-review-photo>
+        <small data-review-photo-name>JPEG, PNG or WebP · up to 5 MB</small>
+      </div>
+
+      <label class="review-form__consent">
+        <input type="checkbox" name="consent" value="1" required>
+        <span>I agree that my review, name and any uploaded photo may be shown publicly on this website.</span>
+      </label>
+
+      <p class="review-form__status" data-review-status role="status" aria-live="polite" aria-atomic="true"></p>
+      <button class="btn btn--primary review-form__submit" type="submit">Publish review <?= icon('arrow-right', 'icon icon--sm') ?></button>
+    </form>
+  </div>
+</dialog>
+
+<!-- ============ SECTION 14: Blog + final CTA ============ -->
 <section class="section section--tint">
   <div class="container">
     <div class="insights-split">
