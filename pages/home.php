@@ -137,10 +137,6 @@ $heroPhotos = [
         <span class="quick-card__link">Open map <?= icon('arrow-right', 'icon icon--sm') ?></span>
       </a>
     </div>
-    <div class="emergency-note reveal">
-      <?= icon('alert', 'icon') ?>
-      <span><strong>Medical emergency?</strong> For life-threatening emergencies, call local emergency services or go to the nearest emergency facility immediately.</span>
-    </div>
   </div>
 </section>
 
@@ -171,7 +167,7 @@ $heroPhotos = [
 </section>
 
 <!-- ============ SECTION 4: Super specialities ============ -->
-<section class="section" id="specialities">
+<section class="section specialty-section" id="specialities">
   <div class="container">
     <div class="section__head section__head--center reveal">
       <span class="eyebrow" style="justify-content:center;">Specialities</span>
@@ -193,133 +189,154 @@ $heroPhotos = [
 </section>
 
 <!-- ============ SECTION 5: Complete service scope ============ -->
-<section class="section section--soft" id="scope-of-services">
+<section class="section section--soft scope-section" id="scope-of-services">
   <div class="container">
-    <div class="section__head reveal">
-      <span class="eyebrow">Care &amp; Support</span>
-      <h2>Scope of Services</h2>
-      <p class="lead">Browse clinical care, diagnostic investigations and allied services in one directory.</p>
+    <div class="scope-section__intro reveal">
+      <div class="scope-section__copy">
+        <span class="eyebrow">Care &amp; Support</span>
+        <h2>Scope of Services</h2>
+        <p class="lead">Browse clinical care, diagnostic investigations and allied services in one directory.</p>
+      </div>
+      <figure class="scope-section__photo">
+        <?= dm_img('assets/img/hospital-shoot/hospital-interior-room.webp', 'Consultation room at Deccan Malti Hospital', 1800, 1200) ?>
+      </figure>
     </div>
-    <div class="scope-grid">
+    <div class="scope-grid scope-grid--home">
       <?php foreach ($serviceCatalog as $categoryKey => $category): ?>
-      <section class="scope-card reveal">
-        <span class="bento__icon"><?= icon($category['icon'], 'icon') ?></span>
-        <h3><?= e($category['label']) ?></h3>
+      <article class="scope-card scope-card--<?= e($categoryKey) ?> reveal">
+        <header class="scope-card__head">
+          <span class="scope-card__icon"><?= icon($category['icon'], 'icon') ?></span>
+          <h3><?= e($category['label']) ?></h3>
+        </header>
+        <div class="scope-card__content">
         <?php foreach ($category['groups'] as $groupName => $items): ?>
-        <?php if ($categoryKey === 'clinical'): ?><h4><?= e($groupName) ?></h4><?php endif; ?>
-        <ul class="scope-card__links">
-          <?php foreach ($items as $service): ?>
-          <li><a href="<?= e(dm_service_url($service)) ?>"><?= e($service['name']) ?></a></li>
-          <?php endforeach; ?>
-        </ul>
+          <div class="scope-card__group">
+            <?php if ($categoryKey === 'clinical'): ?><h4><?= e($groupName) ?></h4><?php endif; ?>
+            <ul class="scope-card__links">
+              <?php foreach ($items as $service): ?>
+              <li>
+                <a href="<?= e(dm_service_url($service)) ?>">
+                  <span><?= e($service['name']) ?></span>
+                  <?= icon('arrow-right', 'icon icon--sm') ?>
+                </a>
+              </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
         <?php endforeach; ?>
+        </div>
         <a href="<?= e(dm_url('departments#' . $categoryKey)) ?>" class="scope-card__more">Service information <?= icon('arrow-right', 'icon icon--sm') ?></a>
-      </section>
+      </article>
       <?php endforeach; ?>
     </div>
   </div>
 </section>
 
 <!-- ============ SECTION 6: Neuro centre feature ============ -->
-<section class="section section--navy" id="neuro-centre">
+<section class="section section--navy neuro-centre" id="neuro-centre">
   <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">Signature Centre</span>
-      <h2>Centre for Brain, Spine &amp; Neurological Care</h2>
-      <p class="lead">Explore Neurosurgery and Neurology services, and discuss symptoms or evaluation with a clinician.</p>
-      <div class="neuro-cards">
-        <div class="neuro-card"><?= icon('brain', 'icon') ?><strong>Neurosurgery</strong><p>Specialist assessment for conditions affecting the brain and spine.</p></div>
-        <div class="neuro-card"><?= icon('pulse', 'icon') ?><strong>Neurology</strong><p>Medical evaluation for concerns involving the nervous system.</p></div>
-        <div class="neuro-card"><?= icon('scan', 'icon') ?><strong>Diagnostic services</strong><p>Imaging and investigations may support a clinician's assessment.</p></div>
-        <div class="neuro-card"><?= icon('hand', 'icon') ?><strong>Rehabilitation support</strong><p>Ask the care team about physiotherapy and rehabilitation services.</p></div>
+    <div class="neuro-centre__layout">
+      <div class="neuro-centre__intro reveal">
+        <span class="eyebrow">Signature Centre</span>
+        <h2>Centre for Brain, Spine &amp; Neurological Care</h2>
+        <p class="lead">Explore Neurosurgery and Neurology services, and discuss symptoms or evaluation with a clinician.</p>
+        <div class="neuro-centre__actions">
+          <a href="<?= e(dm_url('departments/neurosurgery')) ?>" class="btn btn--accent">Neurosurgery overview <?= icon('arrow-right', 'icon icon--sm') ?></a>
+        </div>
       </div>
-      <p style="margin-top:22px;"><a href="<?= e(dm_url('departments/neurosurgery')) ?>" class="btn btn--accent">Neurosurgery overview <?= icon('arrow-right', 'icon icon--sm') ?></a></p>
-      <div class="medical-note">
-        <?= icon('info', 'icon icon--sm') ?>
-        <span>Website information does not replace medical advice. Seek immediate emergency care for urgent symptoms.</span>
+      <div class="neuro-cards neuro-centre__cards reveal">
+        <article class="neuro-card"><?= icon('brain', 'icon') ?><strong>Neurosurgery</strong><p>Specialist assessment for conditions affecting the brain and spine.</p></article>
+        <article class="neuro-card"><?= icon('pulse', 'icon') ?><strong>Neurology</strong><p>Medical evaluation for concerns involving the nervous system.</p></article>
+        <article class="neuro-card"><?= icon('scan', 'icon') ?><strong>Diagnostic services</strong><p>Imaging and investigations may support a clinician's assessment.</p></article>
+        <article class="neuro-card"><?= icon('hand', 'icon') ?><strong>Rehabilitation support</strong><p>Ask the care team about physiotherapy and rehabilitation services.</p></article>
       </div>
+    </div>
+    <div class="medical-note">
+      <?= icon('info', 'icon icon--sm') ?>
+      <span>Website information does not replace medical advice. Seek immediate emergency care for urgent symptoms.</span>
     </div>
   </div>
 </section>
 
 <!-- ============ SECTION 7: Hospital overview ============ -->
-<section class="section section--soft">
+<section class="section section--soft overview-section" id="hospital-overview">
   <div class="container">
-    <div class="section__head reveal">
-      <span class="eyebrow">Hospital Overview</span>
-      <h2>Services, leadership and patient support</h2>
-    </div>
-    <div class="bento">
-      <div class="bento__item bento__item--navy reveal">
-        <span class="bento__icon"><?= icon('bed', 'icon') ?></span>
-        <span class="counter" data-count="45">0</span><span class="counter-suffix" style="font-size:24px;font-weight:800;"> beds</span>
-        <p style="margin-top:8px;">Deccan Malti Hospital’s published bed capacity.</p>
+    <div class="overview-showcase">
+      <div class="overview-showcase__copy reveal">
+        <span class="eyebrow">Hospital Overview</span>
+        <h2>Services, leadership and patient support</h2>
+        <div class="overview-capacity">
+          <span class="overview-capacity__icon"><?= icon('bed', 'icon') ?></span>
+          <div>
+            <div class="overview-capacity__value">
+              <span class="counter" data-count="45">0</span>
+              <span class="counter-suffix"> beds</span>
+            </div>
+            <p>Deccan Malti Hospital’s published bed capacity.</p>
+          </div>
+        </div>
       </div>
-      <div class="bento__item reveal reveal-delay-1">
-        <span class="bento__icon"><?= icon('users', 'icon') ?></span>
+      <figure class="overview-showcase__photo reveal">
+        <?= dm_img('assets/img/hospital-shoot/hospital-corridor.webp', 'Hospital corridor at Deccan Malti Hospital', 1800, 1200) ?>
+      </figure>
+    </div>
+    <div class="overview-grid">
+      <article class="overview-card overview-card--clinical reveal">
+        <span class="overview-card__icon"><?= icon('users', 'icon') ?></span>
         <strong>Clinical services</strong>
         <p>Explore the listed super-specialities, other specialities and diagnostic services.</p>
-      </div>
-      <div class="bento__item reveal reveal-delay-2">
-        <span class="bento__icon"><?= icon('shield', 'icon') ?></span>
+      </article>
+      <article class="overview-card overview-card--leadership reveal reveal-delay-1">
+        <span class="overview-card__icon"><?= icon('shield', 'icon') ?></span>
         <strong>Hospital leadership</strong>
         <p>Read about co-founders Dr. P. C. Patil and Dr. Rohan Patil.</p>
-      </div>
-      <div class="bento__item reveal">
-        <span class="bento__icon"><?= icon('hand', 'icon') ?></span>
+      </article>
+      <article class="overview-card overview-card--patient reveal reveal-delay-2">
+        <span class="overview-card__icon"><?= icon('hand', 'icon') ?></span>
         <strong>Patient information</strong>
         <p>Find appointment, admission, visitor and medical-record guidance before your visit.</p>
-      </div>
-      <div class="bento__item reveal reveal-delay-1">
-        <span class="bento__icon"><?= icon('microscope', 'icon') ?></span>
+      </article>
+      <article class="overview-card overview-card--support reveal">
+        <span class="overview-card__icon"><?= icon('microscope', 'icon') ?></span>
         <strong>Diagnostic &amp; support services</strong>
         <p>Review diagnostic, pharmacy and rehabilitation services listed by the hospital.</p>
-      </div>
-      <div class="bento__item bento__item--yellow reveal reveal-delay-2">
-        <span class="bento__icon"><?= icon('map-pin', 'icon') ?></span>
+      </article>
+      <article class="overview-card overview-card--location reveal reveal-delay-1">
+        <span class="overview-card__icon"><?= icon('map-pin', 'icon') ?></span>
         <strong>Vishrambag, Sangli</strong>
         <p>Find the hospital on Sangli–Miraj Road, opposite Ambassador Hotel and beside Sushil Hospital.</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- ============ SECTION 8: Meet the listed doctors ============ -->
-<section class="section">
+<section class="section doctor-section" id="listed-doctors">
   <div class="container">
-    <div class="section__head reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;max-width:none;flex-wrap:wrap;">
-      <div style="max-width:640px;">
+    <div class="doctor-section__heading reveal">
+      <div>
         <span class="eyebrow">Our Specialists</span>
         <h2>Meet the hospital’s listed doctors</h2>
       </div>
-      <div style="display:flex;gap:10px;">
-        <button class="orbit-btn doctors-prev" aria-label="Previous doctors" style="background:var(--white);border:1px solid var(--border);"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <button class="orbit-btn doctors-next" aria-label="Next doctors" style="background:var(--white);border:1px solid var(--border);"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-      </div>
     </div>
-    <div class="swiper doctors-swiper reveal">
-      <div class="swiper-wrapper">
-        <?php foreach ($doctors as $slug => $doc): if (empty($doc['published'])) continue; ?>
-        <div class="swiper-slide">
-          <div class="doctor-card">
-            <div class="doctor-card__img">
-              <img src="<?= e(dm_url($doc['image'])) ?>" alt="<?= e($doc['image_alt'] ?? ($doc['name'] . ', ' . $doc['speciality'] . ' at Deccan Malti Hospital, Sangli')) ?>" width="480" height="400" loading="lazy">
-            </div>
-            <div class="doctor-card__body">
-              <span class="doctor-card__spec"><?= e($doc['speciality']) ?></span>
-              <h3><?= e($doc['name']) ?></h3>
-              <p class="doctor-card__quals"><?= e(implode(', ', $doc['qualifications'])) ?></p>
-              <p class="doctor-card__exp"><?= e($doc['experience']) ?></p>
-              <div class="doctor-card__actions">
-                <a href="<?= e(dm_url('doctors/' . $slug)) ?>" class="btn btn--outline btn--sm">View Profile</a>
-                <a href="<?= e(dm_url('appointment')) ?>?doctor=<?= e($slug) ?>" class="btn btn--primary btn--sm">Book</a>
-              </div>
-            </div>
+    <div class="doctor-profile-grid">
+      <?php foreach ($doctors as $slug => $doc): if (empty($doc['published'])) continue; ?>
+      <article class="doctor-profile-card reveal">
+        <figure class="doctor-profile-card__portrait">
+          <img src="<?= e(dm_url($doc['image'])) ?>" alt="<?= e($doc['image_alt'] ?? ($doc['name'] . ', ' . $doc['speciality'] . ' at Deccan Malti Hospital, Sangli')) ?>" loading="lazy">
+        </figure>
+        <div class="doctor-profile-card__body">
+          <span class="doctor-profile-card__specialty"><?= e($doc['speciality']) ?></span>
+          <h3><?= e($doc['name']) ?></h3>
+          <p class="doctor-profile-card__quals"><?= e(implode(', ', $doc['qualifications'])) ?></p>
+          <p class="doctor-profile-card__exp"><?= e($doc['experience']) ?></p>
+          <div class="doctor-profile-card__actions">
+            <a href="<?= e(dm_url('doctors/' . $slug)) ?>" class="btn btn--outline btn--sm">View Profile</a>
+            <a href="<?= e(dm_url('appointment')) ?>?doctor=<?= e($slug) ?>" class="btn btn--primary btn--sm">Book</a>
           </div>
         </div>
-        <?php endforeach; ?>
-      </div>
-      <div class="doctors-dots" style="display:flex;justify-content:center;gap:6px;margin-top:24px;"></div>
+      </article>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

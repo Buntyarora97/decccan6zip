@@ -622,17 +622,23 @@ p:last-child { margin-bottom: 0; }
   background-position: center, right center;
   background-repeat: no-repeat;
 }
+.quick-card--appointment,
+.quick-card--specialist,
+.quick-card--call,
+.quick-card--directions {
+  background-color: var(--white);
+}
 .quick-card--appointment {
-  background-image: linear-gradient(100deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.91) 48%, rgba(255,255,255,.74) 100%);
+  background-image: linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.82) 52%, rgba(255,255,255,.42) 100%), url('../img/quick-appointment-bg.webp');
 }
 .quick-card--specialist {
-  background-image: linear-gradient(100deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.91) 48%, rgba(255,255,255,.74) 100%);
+  background-image: linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.82) 52%, rgba(255,255,255,.42) 100%), url('../img/quick-specialist-bg.webp');
 }
 .quick-card--call {
-  background-image: linear-gradient(100deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.91) 48%, rgba(255,255,255,.74) 100%);
+  background-image: linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.82) 52%, rgba(255,255,255,.42) 100%), url('../img/quick-call-bg.webp');
 }
 .quick-card--directions {
-  background-image: linear-gradient(100deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.91) 48%, rgba(255,255,255,.74) 100%);
+  background-image: linear-gradient(90deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.82) 52%, rgba(255,255,255,.42) 100%), url('../img/quick-directions-bg.webp');
 }
 .quick-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .quick-card__icon {
@@ -647,7 +653,7 @@ p:last-child { margin-bottom: 0; }
 .quick-card__link { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14px; color: var(--teal); margin-top: auto; }
 .emergency-note {
   display: flex; align-items: flex-start; gap: 12px; margin-top: var(--sp-4);
-  background: #FDF0EF; border: 1px solid rgba(220,58,53,.25); border-left: 4px solid var(--red);
+  background: #FDF0EF; border: 1px solid rgba(220,58,53,.25);
   border-radius: var(--r-sm); padding: 14px 18px; font-size: 14px; color: #7a2c29;
 }
 .emergency-note .icon { color: var(--red); margin-top: 2px; }

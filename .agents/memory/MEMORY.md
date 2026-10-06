@@ -1,0 +1,1 @@
+- [Homepage background imagery](homepage-background-imagery.md) — The user repeatedly prefers background images when homepage sections are redesigned.
