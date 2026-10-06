@@ -71,7 +71,7 @@ Gallery now uses the real hospital photography in `assets/img/real/`, curated by
 
 ## Asset maintenance
 
-1. Add approved real photography to `assets/img/real/` as WebP; keep the camera originals only in `assets/img/all images/`.
-2. Maintain the source composition: `3:2` for cards, `2:3` for portrait slots, and crop with CSS where needed.
-3. The runtime serves WebP derivatives. Selected large page images are capped at 1280 px and recompressed at quality 82; the supplied and camera originals remain in the source-assets folders.
+1. Add approved real photography as WebP; do not put large camera originals in the deployed website.
+2. Preserve the supplied photo composition and avoid cropping details that could change the meaning of a hospital image.
+3. The runtime serves optimized WebP derivatives. The reviewed hospital shoot is capped at 1800 × 1200; its original JPEG folder was removed after conversion at the user's request.
 4. Keep the homepage hero image eager-loaded and high priority; load below-the-fold images lazily.

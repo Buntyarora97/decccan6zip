@@ -47,8 +47,8 @@ $robots = $seo['robots'] ?? 'index, follow';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="<?= e(dm_url('assets/css/style.css')) ?>?v=1.0.19">
-<link rel="stylesheet" href="<?= e(dm_url('assets/css/phase-one-refresh.css')) ?>?v=1.0.0">
+<link rel="stylesheet" href="<?= e(dm_url('assets/css/style.css')) ?>?v=1.0.20">
+<link rel="stylesheet" href="<?= e(dm_url('assets/css/phase-one-refresh.css')) ?>?v=1.0.1">
 
 <?= dm_schema_organization() ?>
 </head>

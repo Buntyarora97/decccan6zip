@@ -1,6 +1,6 @@
 # Hospital photo-shoot inventory
 
-Visual review of the complete `image1/` folder (66 photographs). The brief calls this folder `images 1`, but the exact uploaded folder in the workspace is `image1/`; originals remain untouched.
+This is the review record for 66 photographs formerly uploaded in `image1/`. The brief called the folder `images 1`; the actual uploaded folder was `image1/`. After 16 selected photos were converted and checked, the original folder was removed at the user's request. The `image1/...` names below are inventory references only; those JPEG files are no longer in the workspace.
 
 Image dimensions and orientation are read from each original file. Public-use derivatives preserve the complete frame at 1800 × 1200; selected originals are listed with their original names below.
 
@@ -75,7 +75,7 @@ Image dimensions and orientation are read from each original file. Public-use de
 
 ## Review notes
 
-- 16 distinct, suitable photographs were optimized for the public site; the originals remain in `image1/`.
+- 16 distinct, suitable photographs were optimized as WebP derivatives for the public site; the original JPEG folder was removed after the derivatives were verified.
 - People are present in groups PH-02, PH-03, CONS-01, WAIT-01, REC-01/02/03, and in one frame of CARE-01. Do not publish those frames until identities and consent are established. The empty frame 211A0066.JPG is used instead.
 - The uploaded images do not clearly establish the exact room class, ICU/HDU designation, or diagnostic machine model. Such images are used only with neutral captions.
 - No uploaded photograph clearly documents an operation theatre, physiotherapy room, or room-class-specific accommodation. Those sections use text and icons rather than unrelated imagery.

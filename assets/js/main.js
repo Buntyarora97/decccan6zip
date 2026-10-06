@@ -280,6 +280,78 @@
   window.addEventListener('scroll', onScrollBtt, { passive: true });
   btt && btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' }));
 
+  /* ---------- Homepage hospital-photo carousel ---------- */
+  const heroCarousel = $('[data-hero-carousel]');
+  if (heroCarousel) {
+    const slides = $$('[data-hero-slide]', heroCarousel);
+    const dots = $$('[data-hero-slide-to]', heroCarousel);
+    const count = $('[data-hero-count]', heroCarousel);
+    const previous = $('[data-hero-prev]', heroCarousel);
+    const next = $('[data-hero-next]', heroCarousel);
+    let activeSlide = 0;
+    let timer = null;
+    let hovered = false;
+    let focused = false;
+
+    const showHeroSlide = index => {
+      activeSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const active = slideIndex === activeSlide;
+        slide.classList.toggle('is-active', active);
+        if (active) slide.removeAttribute('aria-hidden');
+        else slide.setAttribute('aria-hidden', 'true');
+      });
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === activeSlide;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+      if (count) count.firstChild.textContent = `${String(activeSlide + 1).padStart(2, '0')} `;
+    };
+    const stopHeroAutoplay = () => {
+      window.clearInterval(timer);
+      timer = null;
+    };
+    const startHeroAutoplay = () => {
+      stopHeroAutoplay();
+      if (prefersReduced || slides.length < 2 || document.hidden || hovered || focused) return;
+      timer = window.setInterval(() => showHeroSlide(activeSlide + 1), 5600);
+    };
+
+    previous && previous.addEventListener('click', () => {
+      showHeroSlide(activeSlide - 1);
+      startHeroAutoplay();
+    });
+    next && next.addEventListener('click', () => {
+      showHeroSlide(activeSlide + 1);
+      startHeroAutoplay();
+    });
+    dots.forEach(dot => dot.addEventListener('click', () => {
+      showHeroSlide(Number(dot.dataset.heroSlideTo));
+      startHeroAutoplay();
+    }));
+    heroCarousel.addEventListener('pointerenter', () => {
+      hovered = true;
+      stopHeroAutoplay();
+    });
+    heroCarousel.addEventListener('pointerleave', () => {
+      hovered = false;
+      startHeroAutoplay();
+    });
+    heroCarousel.addEventListener('focusin', () => {
+      focused = true;
+      stopHeroAutoplay();
+    });
+    heroCarousel.addEventListener('focusout', event => {
+      if (event.relatedTarget && heroCarousel.contains(event.relatedTarget)) return;
+      focused = false;
+      startHeroAutoplay();
+    });
+    document.addEventListener('visibilitychange', startHeroAutoplay);
+    showHeroSlide(0);
+    startHeroAutoplay();
+  }
+
   /* ---------- Hero video: pause when off-screen / tab hidden ---------- */
   const heroVideo = $('#heroVideo');
   const videoToggle = $('#videoToggle');

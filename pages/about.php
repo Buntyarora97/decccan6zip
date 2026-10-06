@@ -43,7 +43,7 @@ $doctors = dm_doctors();
             <div style="position:relative;padding-bottom:26px;">
               <span style="position:absolute;left:-37px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--teal);border:3px solid var(--white);box-shadow:0 0 0 2px var(--teal);"></span>
               <strong style="font-family:var(--font-head);color:var(--navy);">March 2023</strong>
-              <p style="font-size:14px;color:var(--text-soft);margin-top:4px;">Deccan Malti Neuro &amp; Superspeciality Hospital opens its doors in Vishrambag, Sangli — a 35-bedded multi-super-speciality hospital.</p>
+              <p style="font-size:14px;color:var(--text-soft);margin-top:4px;">Deccan Malti Neuro &amp; Superspeciality Hospital opens its doors in Vishrambag, Sangli — a 45-bedded multi-super-speciality hospital.</p>
             </div>
             <div style="position:relative;padding-bottom:26px;">
               <span style="position:absolute;left:-37px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--teal);border:3px solid var(--white);box-shadow:0 0 0 2px var(--teal);"></span>

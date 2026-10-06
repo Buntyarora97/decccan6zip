@@ -7,6 +7,33 @@ $superSpecialities = $serviceCatalog['clinical']['groups']['Super Specialities']
 $doctors = dm_doctors();
 $articles = dm_articles();
 $articleSlice = array_slice($articles, 0, 3, true);
+$heroPhotos = [
+    [
+        'src' => 'assets/img/hospital-shoot/hospital-exterior-garden-view.webp',
+        'alt' => 'Deccan Malti Hospital exterior framed by trees',
+        'caption' => 'Hospital exterior',
+    ],
+    [
+        'src' => 'assets/img/hospital-shoot/emergency-entrance-signage.webp',
+        'alt' => 'Emergency entrance and visible hospital signage',
+        'caption' => 'Emergency entrance',
+    ],
+    [
+        'src' => 'assets/img/hospital-shoot/hospital-interior-room.webp',
+        'alt' => 'Hospital interior room with desk and chairs',
+        'caption' => 'Hospital interior',
+    ],
+    [
+        'src' => 'assets/img/hospital-shoot/diagnostic-imaging-room.webp',
+        'alt' => 'Diagnostic imaging equipment in a hospital room',
+        'caption' => 'Diagnostic area',
+    ],
+    [
+        'src' => 'assets/img/hospital-shoot/hospital-corridor.webp',
+        'alt' => 'Interior corridor at Deccan Malti Hospital',
+        'caption' => 'Hospital corridor',
+    ],
+];
 ?>
 
 <div class="hospital-marquee" role="region" aria-label="Hospital information">
@@ -14,7 +41,7 @@ $articleSlice = array_slice($articles, 0, 3, true);
     <?php for ($tickerCopy = 0; $tickerCopy < 2; $tickerCopy++): ?>
     <div class="hospital-marquee__group"<?= $tickerCopy ? ' aria-hidden="true" inert' : '' ?>>
       <span class="hospital-marquee__item hospital-marquee__item--brand"><strong>Deccan Malti</strong> Neuro &amp; Superspeciality Hospital</span>
-      <span class="hospital-marquee__item">35-bedded multi-speciality hospital</span>
+      <span class="hospital-marquee__item">45-bedded multi-speciality hospital</span>
       <span class="hospital-marquee__item">Specialist departments</span>
        <span class="hospital-marquee__item">Neurosurgery · Cardiology · Orthopaedics</span>
       <span class="hospital-marquee__item">Sangli–Miraj Road · Vishrambag</span>
@@ -27,9 +54,9 @@ $articleSlice = array_slice($articles, 0, 3, true);
 <!-- ============ SECTION 1: Hospital introduction ============ -->
 <section class="hero">
   <div class="container hero__inner hero--photo-split">
-    <div class="hero__copy">
+    <div class="hero__copy hero__copy--editorial">
       <span class="hero__eyebrow">Deccan Malti Hospital · Sangli</span>
-      <h1>Neuro, ICU &amp;<br>Superspeciality<br><span class="accent">Hospital</span></h1>
+      <h1>Neuro, ICU &amp;<br>Super-speciality<br><span class="accent">Hospital</span></h1>
       <p class="hero__lead">Explore clinical, diagnostic and supportive services, hospital facilities, and practical guidance for planning your visit.</p>
       <div class="hero__ctas">
         <a href="<?= e(dm_url('appointment')) ?>" class="btn btn--accent"><?= icon('calendar', 'icon icon--sm') ?> Book an Appointment</a>
@@ -37,17 +64,46 @@ $articleSlice = array_slice($articles, 0, 3, true);
         <a href="<?= e(dm_brochure_url()) ?>" download="Deccan-Malti-Hospital-Guide.pdf" class="btn btn--ghost-light"><?= icon('download', 'icon icon--sm') ?> Download Hospital Guide</a>
       </div>
       <div class="hero__chips">
+        <span class="chip"><?= icon('bed', 'icon icon--sm') ?> 45 beds</span>
         <span class="chip"><?= icon('map-pin', 'icon icon--sm') ?> Sangli–Miraj Road</span>
-        <span class="chip"><?= icon('brain', 'icon icon--sm') ?> Neurosurgery</span>
-        <span class="chip"><?= icon('scan', 'icon icon--sm') ?> Diagnostic services</span>
       </div>
     </div>
 
-    <div class="hero__photo-frame">
-      <img src="<?= e(dm_url('assets/img/hospital-shoot/hospital-exterior-garden-view.webp')) ?>"
-           alt="Daytime view of the Deccan Malti Hospital building from the entrance approach"
-           width="1800" height="1200" fetchpriority="high" decoding="async">
-      <p class="hero__photo-caption">Deccan Malti Hospital · Vishrambag, Sangli</p>
+    <div class="hero__photo-frame hero__photo-frame--carousel">
+      <div class="hero-carousel" data-hero-carousel role="region" aria-roledescription="carousel" aria-label="Photos of Deccan Malti Hospital">
+        <div class="hero-carousel__viewport">
+          <?php foreach ($heroPhotos as $index => $photo): ?>
+          <figure class="hero-carousel__slide" data-hero-slide<?= $index === 0 ? '' : ' aria-hidden="true"' ?>
+                  role="group" aria-roledescription="slide" aria-label="<?= e(($index + 1) . ' of ' . count($heroPhotos) . ': ' . $photo['caption']) ?>">
+            <img src="<?= e(dm_url($photo['src'])) ?>"
+                 alt="<?= e($photo['alt']) ?>"
+                 width="1800" height="1200"
+                 <?= $index === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"' ?>>
+            <figcaption class="hero-carousel__caption">
+              <span class="hero-carousel__caption-kicker">Deccan Malti Hospital</span>
+              <strong><?= e($photo['caption']) ?></strong>
+            </figcaption>
+          </figure>
+          <?php endforeach; ?>
+          <span class="hero-carousel__bed-badge"><?= icon('bed', 'icon icon--sm') ?> 45 beds</span>
+        </div>
+        <div class="hero-carousel__toolbar">
+          <p class="hero-carousel__location"><?= icon('map-pin', 'icon icon--sm') ?> Vishrambag, Sangli</p>
+          <div class="hero-carousel__controls">
+            <button class="hero-carousel__arrow" type="button" data-hero-prev aria-label="Previous hospital photo"><?= icon('arrow-left', 'icon icon--sm') ?></button>
+            <div class="hero-carousel__dots" role="group" aria-label="Choose a hospital photo">
+              <?php foreach ($heroPhotos as $index => $photo): ?>
+              <button type="button" class="hero-carousel__dot<?= $index === 0 ? ' is-active' : '' ?>"
+                      data-hero-slide-to="<?= e((string) $index) ?>"
+                      aria-label="<?= e('Show photo ' . ($index + 1) . ': ' . $photo['caption']) ?>"
+                      aria-current="<?= $index === 0 ? 'true' : 'false' ?>"></button>
+              <?php endforeach; ?>
+            </div>
+            <span class="hero-carousel__count" data-hero-count aria-live="polite">01 <span>/ <?= e(str_pad((string) count($heroPhotos), 2, '0', STR_PAD_LEFT)) ?></span></span>
+            <button class="hero-carousel__arrow" type="button" data-hero-next aria-label="Next hospital photo"><?= icon('arrow-right', 'icon icon--sm') ?></button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -97,7 +153,7 @@ $articleSlice = array_slice($articles, 0, 3, true);
       </div>
       <span class="timeline-badge">Since March 2023</span>
       <div class="fact-card">
-        <span class="fact-card__num" data-count="35">0</span>
+        <span class="fact-card__num" data-count="45">0</span>
         <small>Bedded multi-super-<br>speciality hospital</small>
       </div>
     </div>
@@ -196,7 +252,7 @@ $articleSlice = array_slice($articles, 0, 3, true);
     <div class="bento">
       <div class="bento__item bento__item--navy reveal">
         <span class="bento__icon"><?= icon('bed', 'icon') ?></span>
-        <span class="counter" data-count="35">0</span><span class="counter-suffix" style="font-size:24px;font-weight:800;"> beds</span>
+        <span class="counter" data-count="45">0</span><span class="counter-suffix" style="font-size:24px;font-weight:800;"> beds</span>
         <p style="margin-top:8px;">Deccan Malti Hospital’s published bed capacity.</p>
       </div>
       <div class="bento__item reveal reveal-delay-1">
