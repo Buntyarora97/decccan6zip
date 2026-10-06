@@ -201,33 +201,67 @@ $heroPhotos = [
         <?= dm_img('assets/img/hospital-shoot/hospital-interior-room.webp', 'Consultation room at Deccan Malti Hospital', 1800, 1200) ?>
       </figure>
     </div>
-    <div class="scope-grid scope-grid--home">
-      <?php foreach ($serviceCatalog as $categoryKey => $category): ?>
-      <article class="scope-card scope-card--<?= e($categoryKey) ?> reveal">
-        <header class="scope-card__head">
-          <span class="scope-card__icon"><?= icon($category['icon'], 'icon') ?></span>
-          <h3><?= e($category['label']) ?></h3>
-        </header>
-        <div class="scope-card__content">
-        <?php foreach ($category['groups'] as $groupName => $items): ?>
-          <div class="scope-card__group">
-            <?php if ($categoryKey === 'clinical'): ?><h4><?= e($groupName) ?></h4><?php endif; ?>
-            <ul class="scope-card__links">
-              <?php foreach ($items as $service): ?>
-              <li>
-                <a href="<?= e(dm_service_url($service)) ?>">
-                  <span><?= e($service['name']) ?></span>
-                  <?= icon('arrow-right', 'icon icon--sm') ?>
-                </a>
-              </li>
-              <?php endforeach; ?>
-            </ul>
-          </div>
-        <?php endforeach; ?>
+    <?php
+    $renderScopeCard = static function (string $categoryKey, array $category): void {
+    ?>
+    <article class="scope-card scope-card--<?= e($categoryKey) ?> reveal">
+      <header class="scope-card__head">
+        <span class="scope-card__icon"><?= icon($category['icon'], 'icon') ?></span>
+        <h3><?= e($category['label']) ?></h3>
+      </header>
+      <div class="scope-card__content">
+      <?php foreach ($category['groups'] as $groupName => $items): ?>
+        <div class="scope-card__group">
+          <?php if ($categoryKey === 'clinical'): ?><h4><?= e($groupName) ?></h4><?php endif; ?>
+          <ul class="scope-card__links">
+            <?php foreach ($items as $service): ?>
+            <li>
+              <a href="<?= e(dm_service_url($service)) ?>">
+                <span><?= e($service['name']) ?></span>
+                <?= icon('arrow-right', 'icon icon--sm') ?>
+              </a>
+            </li>
+            <?php endforeach; ?>
+          </ul>
         </div>
-        <a href="<?= e(dm_url('departments#' . $categoryKey)) ?>" class="scope-card__more">Service information <?= icon('arrow-right', 'icon icon--sm') ?></a>
-      </article>
       <?php endforeach; ?>
+      </div>
+      <a href="<?= e(dm_url('departments#' . $categoryKey)) ?>" class="scope-card__more">Service information <?= icon('arrow-right', 'icon icon--sm') ?></a>
+    </article>
+    <?php }; ?>
+    <div class="scope-layout">
+      <div class="scope-layout__primary">
+        <?php $renderScopeCard('clinical', $serviceCatalog['clinical']); ?>
+      </div>
+      <div class="scope-layout__support">
+        <div class="scope-grid scope-grid--home">
+          <?php foreach (['diagnostic', 'allied'] as $categoryKey): ?>
+            <?php if (isset($serviceCatalog[$categoryKey])): ?>
+              <?php $renderScopeCard($categoryKey, $serviceCatalog[$categoryKey]); ?>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </div>
+        <div class="scope-video-grid" aria-label="Hospital videos">
+          <?php foreach ([
+            ['number' => '01', 'poster' => 'assets/img/hospital-shoot/hospital-interior-room.webp'],
+            ['number' => '02', 'poster' => 'assets/img/hospital-shoot/diagnostic-imaging-room.webp'],
+          ] as $videoSlot): ?>
+          <article class="scope-video-card">
+            <header class="scope-video-card__head">
+              <span class="scope-video-card__number"><?= e($videoSlot['number']) ?></span>
+              <div>
+                <h3>Hospital video <?= e($videoSlot['number']) ?></h3>
+                <p>Replace the video link when ready</p>
+              </div>
+            </header>
+            <figure class="scope-video-card__media">
+              <!-- Add a direct MP4/WebM URL as this player's src attribute. -->
+              <video controls preload="none" playsinline poster="<?= e(dm_url($videoSlot['poster'])) ?>" aria-label="Hospital video <?= e($videoSlot['number']) ?>"></video>
+            </figure>
+          </article>
+          <?php endforeach; ?>
+        </div>
+      </div>
     </div>
   </div>
 </section>
