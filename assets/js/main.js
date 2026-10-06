@@ -366,6 +366,95 @@
     startHeroAutoplay();
   }
 
+  /* ---------- Homepage Instagram Reels carousel ---------- */
+  const reelsCarousel = $('[data-reels-carousel]');
+  if (reelsCarousel) {
+    const reelEmbeds = $$('[data-reel-embed]', reelsCarousel);
+    const reelsStatus = $('[data-reels-status]');
+    const setReelLoaded = frame => {
+      const media = frame.closest('[data-reel-embed]');
+      if (media) media.classList.add('is-loaded');
+    };
+    const loadReel = media => {
+      if (!media || media.dataset.reelLoaded === 'true') return;
+      const frame = $('[data-reel-frame]', media);
+      const id = media.dataset.reelEmbed;
+      if (!frame || !id) return;
+      media.dataset.reelLoaded = 'true';
+      const placeholderMessage = $('[data-reel-placeholder] > span:last-child', media);
+      const fallbackTimer = window.setTimeout(() => {
+        if (media.classList.contains('is-loaded')) return;
+        if (placeholderMessage) placeholderMessage.textContent = 'This video may not load here. Open it directly on Instagram.';
+      }, 12000);
+      frame.addEventListener('load', () => {
+        window.clearTimeout(fallbackTimer);
+        setReelLoaded(frame);
+      }, { once: true });
+      frame.src = `https://www.instagram.com/reel/${encodeURIComponent(id)}/embed/`;
+    };
+
+    if ('IntersectionObserver' in window) {
+      const reelObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          loadReel(entry.target);
+          reelObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: '500px 0px' });
+      reelEmbeds.forEach(media => reelObserver.observe(media));
+    } else {
+      // Older browsers retain working direct links; load one visible reel first.
+      loadReel(reelEmbeds[0]);
+    }
+
+    if (typeof Swiper !== 'undefined') {
+      const reelsSwiper = new Swiper(reelsCarousel, {
+        slidesPerView: 1.12,
+        spaceBetween: 14,
+        speed: prefersReduced ? 0 : 420,
+        grabCursor: true,
+        watchOverflow: true,
+        watchSlidesProgress: true,
+        keyboard: { enabled: true, onlyInViewport: true },
+        a11y: {
+          enabled: true,
+          prevSlideMessage: 'Show previous reels',
+          nextSlideMessage: 'Show next reels',
+          slideLabelMessage: '{{index}} of {{slidesLength}}',
+        },
+        navigation: {
+          prevEl: $('[data-reels-prev]', reelsCarousel.parentElement),
+          nextEl: $('[data-reels-next]', reelsCarousel.parentElement),
+        },
+        pagination: {
+          el: $('[data-reels-pagination]', reelsCarousel.parentElement),
+          clickable: true,
+          bulletElement: 'button',
+        },
+        breakpoints: {
+          520: { slidesPerView: 1.65, spaceBetween: 16 },
+          768: { slidesPerView: 2.35, spaceBetween: 18 },
+          1100: { slidesPerView: 3.15, spaceBetween: 20 },
+        },
+        on: {
+          slideChange() {
+            if (reelsStatus) {
+              reelsStatus.textContent = `Showing reels ${this.activeIndex + 1} to ${Math.min(this.activeIndex + Math.ceil(this.params.slidesPerView), reelEmbeds.length)} of ${reelEmbeds.length}.`;
+            }
+          },
+          slideChangeTransitionStart() {
+            // Queue the active reel and its immediate neighbors, not all ten embeds.
+            [this.activeIndex - 1, this.activeIndex, this.activeIndex + 1].forEach(index => {
+              if (reelEmbeds[index]) loadReel(reelEmbeds[index]);
+            });
+          },
+        },
+      });
+      // Swiper may be unavailable until its deferred vendor script is ready.
+      reelsSwiper.update();
+    }
+  }
+
   /* ---------- Hero video: pause when off-screen / tab hidden ---------- */
   const heroVideo = $('#heroVideo');
   const videoToggle = $('#videoToggle');

@@ -34,6 +34,18 @@ $heroPhotos = [
         'caption' => 'Hospital corridor',
     ],
 ];
+$instagramReels = [
+    'Dd-2W7CkloT',
+    'Dd5fOdrlM3a',
+    'Dd0Vji8lVgN',
+    'DdvMEF3EykH',
+    'DdqCPJvDadY',
+    'Ddk4pp-iDUZ',
+    'DdgRBR5TP9V',
+    'DddZcHyk2cS',
+    'DdXyrvEiYVD',
+    'DdQLMR9Efqg',
+];
 ?>
 
 <div class="hospital-marquee" role="region" aria-label="Hospital information">
@@ -185,6 +197,71 @@ $heroPhotos = [
       <?php endforeach; ?>
     </div>
     <p class="section__footer-link"><a href="<?= e(dm_url('departments')) ?>" class="btn btn--outline">View the full service directory <?= icon('arrow-right', 'icon icon--sm') ?></a></p>
+  </div>
+</section>
+
+<!-- ============ SECTION 4B: Instagram Reels ============ -->
+<section class="section reels-section" id="hospital-reels" aria-labelledby="reels-heading">
+  <div class="container">
+    <div class="reels-section__heading">
+      <div class="reels-section__intro">
+        <span class="eyebrow">From Deccan Malti</span>
+        <h2 id="reels-heading">Hospital moments, in motion</h2>
+        <p class="lead">Short videos shared by Deccan Malti Hospital. Swipe through, or open any Reel directly on Instagram.</p>
+      </div>
+      <div class="reels-controls" role="group" aria-label="Reel carousel controls">
+        <button class="reels-control" type="button" data-reels-prev aria-label="Previous reels" aria-controls="hospitalReelsTrack">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="reels-control" type="button" data-reels-next aria-label="Next reels" aria-controls="hospitalReelsTrack">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="reels-carousel swiper" data-reels-carousel role="region" aria-roledescription="carousel" aria-label="Deccan Malti Hospital Instagram Reels">
+      <div class="swiper-wrapper" id="hospitalReelsTrack">
+        <?php foreach ($instagramReels as $index => $reelId):
+          $reelNumber = str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT);
+          $reelUrl = 'https://www.instagram.com/reel/' . $reelId . '/';
+        ?>
+        <article class="reel-card swiper-slide" role="group" aria-roledescription="slide" aria-label="<?= e(($index + 1) . ' of ' . count($instagramReels)) ?>">
+          <div class="reel-card__topline">
+            <span class="reel-card__brand">DECCAN MALTI <span>·</span> REEL <?= e($reelNumber) ?></span>
+            <span class="reel-card__mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="reel-card__mark-dot" cx="17.6" cy="6.8" r="1"/></svg>
+            </span>
+          </div>
+          <div class="reel-card__media" data-reel-embed="<?= e($reelId) ?>">
+            <div class="reel-card__placeholder" data-reel-placeholder>
+              <span class="reel-card__placeholder-rule" aria-hidden="true"></span>
+              <strong>Instagram Reel</strong>
+              <span>Loading the original video…</span>
+            </div>
+            <iframe
+              data-reel-frame
+              title="Instagram Reel <?= e($reelNumber) ?> from Deccan Malti Hospital"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="reel-card__footer">
+            <span>Watch on Instagram</span>
+            <a href="<?= e($reelUrl) ?>" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram Reel <?= e($reelNumber) ?> in a new tab">
+              Open Reel
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+    <div class="reels-section__footer">
+      <div class="reels-pagination" data-reels-pagination aria-label="Choose a reel"></div>
+      <p class="reels-section__note">Instagram controls and availability are provided by Instagram. If a video does not load here, use its direct link.</p>
+    </div>
+    <span class="sr-only" data-reels-status aria-live="polite" aria-atomic="true"></span>
   </div>
 </section>
 

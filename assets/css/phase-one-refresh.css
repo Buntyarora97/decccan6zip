@@ -696,6 +696,273 @@
   }
 }
 
+/* Homepage Reels: an airy, photo-backed pause between specialities and services. */
+.reels-section {
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: calc(var(--header-h) + 10px);
+  padding-block: clamp(42px, 6vw, 76px);
+  background-color: #edf4fb;
+  background-image:
+    linear-gradient(100deg, rgba(247, 249, 252, .96), rgba(237, 244, 251, .91)),
+    url('../img/hospital-shoot/hospital-exterior-garden-view.webp');
+  background-position: center, center 52%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.reels-section::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, #168b52 0 22%, rgba(22, 139, 82, .16) 22% 100%);
+  content: "";
+}
+.reels-section .container { position: relative; }
+.reels-section__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.reels-section__intro { max-width: 760px; }
+.reels-section__intro .eyebrow { margin-bottom: 9px; }
+.reels-section__intro h2 {
+  margin: 0 0 9px;
+  color: var(--brand-navy, #0c3285);
+  font-size: clamp(28px, 3.2vw, 40px);
+  letter-spacing: -.035em;
+  line-height: 1.15;
+}
+.reels-section__intro .lead {
+  max-width: 660px;
+  margin: 0;
+  color: #526174;
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.65;
+}
+.reels-controls { display: flex; flex: 0 0 auto; gap: 9px; }
+.reels-control {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid #cbd9e8;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .88);
+  color: #123566;
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease, color .18s ease, transform .18s ease;
+}
+.reels-control svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+.reels-control:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #168b52;
+  background: #168b52;
+  color: #fff;
+}
+.reels-control:disabled { opacity: .45; cursor: not-allowed; }
+.reels-control:focus-visible,
+.reels-pagination button:focus-visible,
+.reel-card__footer a:focus-visible {
+  outline: 3px solid #168b52;
+  outline-offset: 3px;
+}
+.reels-carousel { overflow: hidden; }
+.reels-carousel:not(.swiper-initialized) { overflow-x: auto; }
+.reels-carousel .swiper-wrapper { align-items: stretch; }
+.reel-card {
+  display: flex;
+  min-width: 0;
+  height: auto;
+  flex-direction: column;
+  padding: 13px;
+  border: 1px solid rgba(201, 216, 232, .92);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 12px 34px rgba(12, 50, 133, .09);
+}
+.reel-card__topline,
+.reel-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.reel-card__topline { min-height: 30px; margin: 0 2px 11px; }
+.reel-card__brand {
+  color: #163763;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .09em;
+}
+.reel-card__brand > span { color: #168b52; }
+.reel-card__mark {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 9px;
+  background: #eff6f3;
+  color: #168b52;
+}
+.reel-card__mark svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+.reel-card__mark-dot { fill: currentColor; stroke: none; }
+.reel-card__media {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 510px;
+  border: 1px solid #e2eaf1;
+  border-radius: 13px;
+  background: #eaf2f7;
+}
+.reel-card__media iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+.reel-card__placeholder {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse at 50% 36%, rgba(255,255,255,.98), rgba(239,246,250,.98) 68%),
+    #eff6fa;
+  color: #163763;
+  text-align: center;
+  transition: opacity .22s ease, visibility .22s ease;
+}
+.reel-card__placeholder strong { font-size: 15px; }
+.reel-card__placeholder > span:last-child {
+  max-width: 210px;
+  color: #607287;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.reel-card__placeholder-rule {
+  width: 34px;
+  height: 3px;
+  margin-bottom: 3px;
+  border-radius: 4px;
+  background: #168b52;
+}
+.reel-card__media.is-loaded .reel-card__placeholder {
+  visibility: hidden;
+  opacity: 0;
+}
+.reel-card__footer {
+  min-height: 44px;
+  padding: 10px 3px 0;
+  color: #627287;
+  font-size: 11px;
+  font-weight: 700;
+}
+.reel-card__footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 36px;
+  color: #0069ad;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.reel-card__footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.reel-card__footer a svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+.reels-section__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 21px;
+}
+.reels-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+.reels-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  margin: 0 !important;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #9eb1c4;
+  opacity: 1;
+  cursor: pointer;
+  transition: width .18s ease, border-radius .18s ease, background-color .18s ease;
+}
+.reels-pagination .swiper-pagination-bullet-active {
+  width: 22px;
+  border-radius: 999px;
+  background: #168b52;
+}
+.reels-section__note {
+  max-width: 570px;
+  margin: 0;
+  color: #5d6e82;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: right;
+}
+@media (max-width: 767px) {
+  .reels-section { padding-block: 38px 42px; }
+  .reels-section__heading { align-items: start; gap: 14px; margin-bottom: 19px; }
+  .reels-section__intro { min-width: 0; }
+  .reels-section__intro h2 { font-size: clamp(26px, 7vw, 34px); }
+  .reels-controls { gap: 7px; }
+  .reels-control { width: 40px; height: 40px; }
+  .reel-card { padding: 10px; border-radius: 17px; }
+  .reel-card__media { height: min(132vw, 510px); min-height: 400px; }
+  .reels-section__footer { align-items: flex-start; flex-direction: column; gap: 11px; margin-top: 16px; }
+  .reels-section__note { text-align: left; }
+}
+@media (max-width: 420px) {
+  .reels-section__heading { flex-direction: column; }
+  .reels-controls { align-self: flex-end; margin-top: -4px; }
+  .reel-card__media { height: 470px; min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reels-control,
+  .reel-card__placeholder,
+  .reels-pagination .swiper-pagination-bullet { transition: none; }
+  .reels-control:hover:not(:disabled) { transform: none; }
+}
+
 /* Existing hospital-photo components: replace legacy cover/zoom rules too. */
 .hero__poster,
 .orbit-slider img,
