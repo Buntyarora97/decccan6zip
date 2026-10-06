@@ -619,4 +619,43 @@
       }
     });
   }
+
+  /* ---------- Services directory search ---------- */
+  const servicesRoot = $('.services-directory');
+  if (servicesRoot) {
+    const serviceSearch = servicesRoot.querySelector('#serviceSearch');
+    const serviceStatus = servicesRoot.querySelector('#serviceSearchStatus');
+    const noServiceResults = servicesRoot.querySelector('#serviceNoResults');
+    const serviceCards = Array.from(servicesRoot.querySelectorAll('[data-service-card]'));
+    const serviceGroups = Array.from(servicesRoot.querySelectorAll('[data-service-group]'));
+    const serviceCategories = Array.from(servicesRoot.querySelectorAll('[data-service-category]'));
+
+    if (serviceSearch) {
+      serviceSearch.addEventListener('input', () => {
+        const query = serviceSearch.value.trim().toLocaleLowerCase();
+        let visibleCount = 0;
+
+        serviceCards.forEach(card => {
+          const searchableText = (card.dataset.search || card.textContent || '').toLocaleLowerCase();
+          const matches = !query || searchableText.includes(query);
+          card.hidden = !matches;
+          if (matches) visibleCount += 1;
+        });
+
+        serviceGroups.forEach(group => {
+          group.hidden = !group.querySelector('[data-service-card]:not([hidden])');
+        });
+        serviceCategories.forEach(category => {
+          category.hidden = !category.querySelector('[data-service-card]:not([hidden])');
+        });
+
+        if (serviceStatus) {
+          serviceStatus.textContent = query
+            ? `${visibleCount} ${visibleCount === 1 ? 'service' : 'services'} found.`
+            : `Showing all ${visibleCount} services.`;
+        }
+        if (noServiceResults) noServiceResults.hidden = visibleCount !== 0;
+      });
+    }
+  }
 })();
