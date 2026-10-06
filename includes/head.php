@@ -48,7 +48,7 @@ $robots = $seo['robots'] ?? 'index, follow';
 
 <!-- Main CSS -->
 <link rel="stylesheet" href="<?= e(dm_url('assets/css/style.css')) ?>?v=1.0.21">
-<link rel="stylesheet" href="<?= e(dm_url('assets/css/phase-one-refresh.css')) ?>?v=1.0.7">
+<link rel="stylesheet" href="<?= e(dm_url('assets/css/phase-one-refresh.css')) ?>?v=1.0.8">
 
 <?= dm_schema_organization() ?>
 </head>
