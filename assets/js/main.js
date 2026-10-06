@@ -185,38 +185,42 @@
     });
   }
 
-  /* ---------- Mega menu image preview (departments) ---------- */
-  const preview = $('#megaPreview');
-  if (preview) {
-    const pImg = $('#megaPreviewImg');
-    const pTitle = $('#megaPreviewTitle');
-    const pSummary = $('#megaPreviewSummary');
-    const loader = {};
-    $$('.mega__dept-link[data-preview-image]').forEach(link => {
-      const show = () => {
-        $$('.mega__dept-link').forEach(l => l.classList.remove('is-active'));
-        link.classList.add('is-active');
-        const { previewTitle, previewSummary, previewImage, previewUrl } = link.dataset;
-        preview.href = previewUrl;
-        preview.classList.add('is-fading');
-        setTimeout(() => {
-          pTitle.textContent = previewTitle;
-          pSummary.textContent = previewSummary;
-          if (loader[previewImage]) {
-            pImg.src = previewImage;
-            pImg.alt = previewTitle;
-            preview.classList.remove('is-fading');
-          } else {
-            const tmp = new Image();
-            tmp.onload = () => { loader[previewImage] = true; pImg.src = previewImage; pImg.alt = previewTitle; preview.classList.remove('is-fading'); };
-            tmp.onerror = () => preview.classList.remove('is-fading');
-            tmp.src = previewImage;
-          }
-        }, 160);
+  /* ---------- Live service image preview in the services mega menu ---------- */
+  const servicePreview = $('#megaServicePreview');
+  if (servicePreview) {
+    const previewImage = $('#megaServicePreviewImg');
+    const previewTitle = $('#megaServicePreviewTitle');
+    const previewSummary = $('#megaServicePreviewSummary');
+    const serviceLinks = $$('[data-service-preview]');
+    let imageRequest = 0;
+
+    const showServicePreview = link => {
+      if (!link || !previewImage || !previewTitle || !previewSummary) return;
+      serviceLinks.forEach(item => item.classList.toggle('is-active', item === link));
+      previewTitle.textContent = link.dataset.previewTitle || link.textContent.trim();
+      previewSummary.textContent = link.dataset.previewSummary || '';
+      servicePreview.href = link.dataset.previewUrl || link.href;
+      servicePreview.setAttribute('aria-label', `Explore ${previewTitle.textContent}`);
+
+      const nextImage = link.dataset.previewImage;
+      if (!nextImage) return;
+      previewImage.alt = link.dataset.previewAlt || '';
+      const request = ++imageRequest;
+      servicePreview.classList.add('is-fading');
+      previewImage.onload = () => {
+        if (request === imageRequest) servicePreview.classList.remove('is-fading');
       };
-      link.addEventListener('mouseenter', show);
-      link.addEventListener('focus', show);
-      link.addEventListener('touchstart', show, { passive: true });
+      previewImage.onerror = () => {
+        if (request === imageRequest) servicePreview.classList.remove('is-fading');
+      };
+      previewImage.src = nextImage;
+      if (previewImage.complete) servicePreview.classList.remove('is-fading');
+    };
+
+    serviceLinks.forEach(link => {
+      link.addEventListener('pointerenter', () => showServicePreview(link));
+      link.addEventListener('focus', () => showServicePreview(link));
+      link.addEventListener('touchstart', () => showServicePreview(link), { passive: true });
     });
   }
 
@@ -266,6 +270,16 @@
     group.addEventListener('toggle', () => {
       if (!group.open) return;
       $$('.drawer__group').forEach(other => { if (other !== group) other.open = false; });
+    });
+  });
+  $$('.drawer__category').forEach(category => {
+    $$('.drawer__subgroup', category).forEach(subgroup => {
+      subgroup.addEventListener('toggle', () => {
+        if (!subgroup.open) return;
+        $$('.drawer__subgroup', category).forEach(other => {
+          if (other !== subgroup) other.open = false;
+        });
+      });
     });
   });
 

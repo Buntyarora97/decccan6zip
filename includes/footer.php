@@ -129,7 +129,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 
 <!-- Main JS -->
-<script src="<?= e(dm_url('assets/js/main.js')) ?>?v=1.0.7" defer></script>
+<script src="<?= e(dm_url('assets/js/main.js')) ?>?v=1.0.9" defer></script>
 <script src="<?= e(dm_url('assets/js/language-switcher.js')) ?>?v=1.0.0" defer></script>
 </body>
 </html>
