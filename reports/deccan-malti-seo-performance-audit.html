@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deccan Malti Hospital — SEO &amp; Performance Audit</title>
+<style>
+@page { size: A4 landscape; margin: 11mm 10mm 15mm; @bottom-left { content: "Deccan Malti Hospital · Website SEO audit · 4 October 2026"; color: #6b7b88; font: 8pt Arial, sans-serif; } @bottom-right { content: "Page " counter(page); color: #6b7b88; font: 8pt Arial, sans-serif; } }
+* { box-sizing: border-box; }
+body { margin: 0; color: #1c2e40; background: #fff; font: 9pt/1.45 Arial, Helvetica, sans-serif; }
+h1,h2,h3,p { margin-top: 0; }
+h1 { margin-bottom: 7px; font-size: 29pt; line-height: 1.06; letter-spacing: -.7px; }
+h2 { margin: 0 0 7px; font-size: 16pt; }
+h3 { margin: 0 0 5px; font-size: 10pt; }
+.cover { page-break-after: always; break-after: page; }
+.masthead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8mm; color: #597080; font-size: 9pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.brand { display: flex; align-items: center; gap: 9px; color: #102b50; letter-spacing: .02em; text-transform: none; font-size: 12pt; }
+.brand-mark { width: 10px; height: 26px; background: linear-gradient(#187e8a 0 50%, #ffc857 50%); border-radius: 5px; }
+.hero { padding: 10mm 13mm; color: #fff; border-radius: 13px; background: linear-gradient(115deg, #102b50 0%, #0c5965 100%); }
+.eyebrow { margin-bottom: 8px; color: #a6e7dc; font-size: 8pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.hero p { max-width: 760px; margin: 0; color: #e2edf2; font-size: 10.5pt; }
+.metadata { display: flex; justify-content: space-between; margin-top: 10px; color: #bcd0dc; font-size: 8pt; }
+.section { margin-top: 6mm; }
+.section-title { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 9px; }
+.section-title small { color: #617586; font-size: 8pt; }
+.kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.kpi { padding: 8px 10px; min-height: 54px; border: 1px solid #dce5ea; border-radius: 8px; background: #f7fafb; }
+.kpi strong { display: block; color: #102b50; font-size: 17pt; line-height: 1.1; }
+.kpi span { color: #5d7080; font-size: 7.6pt; }
+.cover-summary { margin-top: 8mm; }
+.summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.summary-card { min-height: 28mm; padding: 9px 11px; border: 1px solid #dce5ea; border-radius: 8px; background: #f7fafb; }
+.summary-card strong { display: block; margin-bottom: 5px; color: #102b50; font-size: 10pt; }
+.summary-card span { color: #536b7b; font-size: 8pt; }
+.readiness-page { page-break-before: always; break-before: page; }
+.speed-table { width: 100%; margin-top: 7px; border-collapse: collapse; table-layout: fixed; }
+.speed-table th,.speed-table td { padding: 7px 9px; border: 1px solid #dce5ea; text-align: left; vertical-align: top; }
+.speed-table th { color: #fff; background: #102b50; font-size: 8pt; }
+.speed-table td { font-size: 8.4pt; }
+.speed-table td:first-child { width: 34%; font-weight: 700; }
+.speed-table small { display: block; margin-top: 2px; color: #607382; font-size: 7pt; }
+.lab-note,.caveat { padding: 8px 10px; border-left: 3px solid #187e8a; background: #f0f7f7; color: #36515e; font-size: 8pt; }
+.columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.findings { margin: 0; padding-left: 17px; }
+.findings li { margin: 0 0 5px; }
+.findings strong { color: #102b50; }
+.priority { color: #a34818; font-weight: 700; }
+.inventory-page { page-break-before: always; }
+.inventory-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 5mm; padding-bottom: 4mm; border-bottom: 2px solid #187e8a; }
+.inventory-header p { margin: 0; color: #617586; font-size: 8pt; }
+table.inventory { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.inventory thead { display: table-header-group; }
+.inventory tr { page-break-inside: avoid; }
+.inventory th,.inventory td { padding: 5px 7px; border-bottom: 1px solid #dce5ea; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.inventory thead th { color: #fff; background: #102b50; font-size: 7.5pt; letter-spacing: .04em; text-transform: uppercase; }
+.inventory .route { width: 17%; }
+.inventory .title-cell { width: 28%; }
+.inventory .description-cell { width: 45%; }
+.inventory .h1-cell { width: 10%; }
+.inventory td { font-size: 7.6pt; line-height: 1.32; }
+.inventory code { color: #0c5965; font: 700 7.4pt/1.35 Consolas, "Courier New", monospace; }
+.inventory td small { display: block; margin-top: 3px; color: #6b7b88; font-size: 6.8pt; }
+.inventory .group-row th { padding: 8px 7px 4px; color: #0c5965; background: #eaf4f4; font-size: 8pt; }
+.inventory .group-row span { float: right; color: #6b7b88; font-size: 7pt; font-weight: 400; }
+.footnote { margin-top: 5mm; color: #657887; font-size: 7.5pt; }
+</style>
+</head>
+<body>
+<section class="cover">
+  <div class="masthead"><div class="brand"><span class="brand-mark"></span> Deccan Malti Hospital</div><span>Website audit</span></div>
+  <div class="hero">
+    <div class="eyebrow">Search metadata · Technical checks · Lab performance</div>
+    <h1>SEO &amp; Performance Audit</h1>
+    <p>A route-by-route review of page titles, descriptions, headings, canonical links, structured data, supplied photography and local browser performance.</p>
+    <div class="metadata"><span>Sangli, Maharashtra</span><span>Prepared 4 October 2026</span></div>
+  </div>
+
+  <section class="section">
+    <div class="section-title"><h2>Audit snapshot</h2><small>Scope: every URL listed in the generated XML sitemap</small></div>
+    <div class="kpis">
+      <div class="kpi"><strong>41</strong><span>Sitemap URLs crawled</span></div>
+      <div class="kpi"><strong>41/41</strong><span>Returned HTTP 200 locally</span></div>
+      <div class="kpi"><strong>41/41</strong><span>Unique page titles</span></div>
+      <div class="kpi"><strong>41/41</strong><span>Unique meta descriptions</span></div>
+      <div class="kpi"><strong>0</strong><span>Pages with missing/extra H1</span></div>
+    <div class="kpi"><strong>0</strong><span>Missing image alt attributes</span></div>
+    </div>
+  </section>
+
+  <section class="section cover-summary">
+    <div class="section-title"><h2>Key results</h2><small>Local implementation checks; production status is not verified</small></div>
+    <div class="summary-grid">
+      <div class="summary-card"><strong>Search metadata</strong><span>All 41 sitemap routes returned locally with unique titles and descriptions, one H1, canonical links and no missing image alt attributes.</span></div>
+      <div class="summary-card"><strong>Desktop homepage LCP</strong><span>0.62 s median across three cache-disabled local browser runs.</span></div>
+      <div class="summary-card"><strong>Mobile homepage LCP</strong><span>2.33 s median in local simulation. Verify on the live HTTPS site before drawing production conclusions.</span></div>
+    </div>
+  </section>
+</section>
+
+<section class="performance-page">
+  <section class="section">
+    <div class="section-title"><h2>Homepage performance</h2><small>Three cache-disabled local Chromium runs · median and range</small></div>
+    <table class="speed-table">
+      <thead><tr><th>Metric</th><th>Desktop · 1365 × 768 CSS px</th><th>Mobile · 390 × 844 CSS px</th></tr></thead>
+      <tbody>
+        <tr><td>First Contentful Paint (FCP)</td><td>0.62 s <small>Range 0.60 s–1.00 s</small></td><td>2.32 s <small>Range 2.32 s–2.42 s</small></td></tr>
+        <tr><td>Largest Contentful Paint (LCP)</td><td><strong>0.62 s</strong> <small>Range 0.60 s–1.11 s</small></td><td><strong>2.33 s</strong> <small>Range 2.32 s–2.42 s · Mobile improvement remains a priority</small></td></tr>
+        <tr><td>Browser load event</td><td>1.14 s <small>Range 1.13 s–1.35 s</small></td><td>6.27 s <small>Range 6.26 s–6.28 s</small></td></tr>
+        <tr><td>Transferred page resources</td><td>1.14 MB</td><td>1.07 MB</td></tr>
+        <tr><td>Cumulative Layout Shift (CLS)</td><td>0.0015</td><td>0.0000</td></tr>
+        <tr><td>Interaction to Next Paint (INP)</td><td colspan="2">Not measured in this no-interaction lab test; validate with real-user data or an interaction-focused test.</td></tr>
+      </tbody>
+    </table>
+    <p class="lab-note"><strong>Test conditions.</strong> Desktop: 1365 × 768 CSS px, 10 Mbps down / 40 ms latency, No CPU throttling. Mobile: 390 × 844 CSS px, 1.6 Mbps down / 150 ms latency, 4× CPU throttling. The homepage was measured in the Replit workspace over HTTP, not on a public production domain. These are repeatable local lab readings—not PageSpeed Insights/Lighthouse scores or real-user Core Web Vitals. Production speed and field data remain unverified.</p>
+  </section>
+</section>
+
+<section class="readiness-page">
+  <section class="section">
+    <h2>Technical SEO status</h2>
+    <table class="speed-table">
+      <thead><tr><th>Area</th><th>Local audit result</th><th>Scope note</th></tr></thead>
+      <tbody>
+        <tr><td>Indexable page inventory</td><td>41 sitemap-listed HTML routes; 41/41 returned HTTP 200 locally.</td><td>Robots.txt and sitemap.xml are utility endpoints, not counted as HTML pages. Admin/API routes, redirects and 404s are excluded.</td></tr>
+        <tr><td>On-page metadata</td><td>41/41 unique titles and descriptions; one H1, one canonical, viewport, Open Graph and Twitter card tags on each route.</td><td>Canonical host and indexation need production-domain verification.</td></tr>
+        <tr><td>Structured data</td><td>JSON-LD parses on all audited routes. Site-wide Hospital/WebSite graph; 40 breadcrumbs, 14 FAQ pages, 2 physician profiles and 7 articles.</td><td>Syntax was checked locally; rich-result eligibility is not guaranteed.</td></tr>
+        <tr><td>Crawl directives</td><td>robots.txt returns plain text, allows public routes and references the XML sitemap.</td><td>Production robots policy and sitemap host have not been checked.</td></tr>
+        <tr><td>Image accessibility</td><td>0 missing image alt attributes across the 41 rendered routes.</td><td>Alt-text relevance and image licensing/consent still require human review.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section columns">
+    <div>
+      <h2>Content and launch actions</h2>
+      <ul class="findings">
+        <li><strong>Production domain:</strong> No public HTTPS host was supplied. Confirm the live canonical URLs, robots.txt, sitemap hostname and redirects, then submit the sitemap to Search Console.</li>
+        <li><strong>Mobile speed:</strong> Homepage local mobile LCP median is 2.33 s. Re-run on the production host; optimize the critical path if the same result persists.</li>
+        <li><strong>Medical review:</strong> Have a qualified clinician review the exact health-article and department copy before adding reviewer credentials or presenting it as clinical advice.</li>
+        <li><strong>Verify hospital claims:</strong> Bed count, credentials, experience, services, test availability, insurance participation and operational details need hospital approval.</li>
+        <li><strong>Metadata refinements:</strong> Descriptions are unique (137–168 characters). Review length and search intent individually; character limits are guidance, not ranking guarantees.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Image, privacy and hosting checks</h2>
+      <ul class="findings">
+        <li><strong>Doctor portrait:</strong> The second supplied portrait is associated with Dr. P. C. Patil in the site; confirm identity and approval before publication.</li>
+        <li><strong>Patient privacy:</strong> The supplied bedside image showing patients was not published because documented consent was unavailable.</li>
+        <li><strong>Pharmacy imagery:</strong> Pharmacy-front photos were not published; the signage names “Malati Nursing Home Pharmacy,” whose relationship to this hospital is unconfirmed.</li>
+        <li><strong>Hosting security:</strong> This workspace audit does not verify production HTTPS, credentials, server headers, backups or access controls. Check these on the live host before launch.</li>
+        <li><strong>Image delivery:</strong> Selected large WebP photos were reduced to a 1280 px maximum dimension; original source assets remain preserved.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section caveat">
+    This is a technical/on-page snapshot, not a ranking guarantee or “100% SEO” certification. Search Console indexing, production Core Web Vitals, Lighthouse/PageSpeed scores, live HTTPS and hospital/medical claim accuracy were not verified.
+  </section>
+</section>
+
+<section class="inventory-page">
+  <div class="inventory-header"><div><div class="eyebrow" style="color:#187e8a;">Page-level SEO inventory</div><h2>Routes, titles, descriptions and H1 headings</h2></div><p>41 URLs · title lengths 41–65 characters · descriptions 137–168 characters</p></div>
+  <table class="inventory">
+    <thead><tr><th class="route">URL route</th><th class="title-cell">Page title and H1</th><th class="description-cell">Meta description</th></tr></thead>
+    <tbody>
+  <tr class="group-row"><th colspan="3">Home <span>1 URL</span></th></tr>
+  
+    <tr>
+      <td class="route"><code>/</code></td>
+      <td class="title-cell"><strong>Neuro &amp; Superspeciality Hospital in Sangli | Deccan Malti</strong><small>57 characters · H1: Advanced Care. Human Touch. Life Prevails.</small></td>
+      <td class="description-cell">Specialist care in Sangli for brain, spine, heart and joint conditions. Meet Deccan Malti Hospital’s doctors, explore specialist departments and request an appointment.<small>168 characters</small></td>
+    </tr>
+
+  <tr class="group-row"><th colspan="3">Main website pages <span>16 URLs</span></th></tr>
+  
+    <tr>
+      <td class="route"><code>/about</code></td>
+      <td class="title-cell"><strong>About Deccan Malti Hospital in Sangli | Our Story</strong><small>49 characters · H1: About Deccan Malti</small></td>
+      <td class="description-cell">Discover Deccan Malti Hospital in Vishrambag, Sangli—its founding story, listed specialist departments and patient-centred approach to local care.<small>146 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/appointment</code></td>
+      <td class="title-cell"><strong>Book a Hospital Appointment in Sangli | Deccan Malti</strong><small>52 characters · H1: Book an Appointment</small></td>
+      <td class="description-cell">Request an appointment with a specialist at Deccan Malti Hospital, Sangli. Choose a department and the patient-care team will call to confirm your preferred slot.<small>162 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/contact</code></td>
+      <td class="title-cell"><strong>Contact Deccan Malti Hospital in Sangli | Directions</strong><small>52 characters · H1: Contact Us</small></td>
+      <td class="description-cell">Contact Deccan Malti Hospital in Vishrambag, Sangli for directions, appointment requests and general enquiries. Call the hospital or send an online message.<small>156 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments</code></td>
+      <td class="title-cell"><strong>Hospital Departments in Sangli | Deccan Malti Hospital</strong><small>54 characters · H1: Departments &amp; Specialities</small></td>
+      <td class="description-cell">Deccan Malti Hospital departments in Sangli: neurosurgery, neurology, cardiology, orthopaedics, general surgery, urology, nephrology, oncology and colorectal care.<small>163 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/doctors</code></td>
+      <td class="title-cell"><strong>Doctors &amp; Specialists in Sangli | Deccan Malti Hospital</strong><small>55 characters · H1: Find a Doctor</small></td>
+      <td class="description-cell">Find doctors at Deccan Malti Hospital, Sangli. View profiles for neurosurgeon Dr. Rohan Patil and general surgeon Dr. P. C. Patil, then request a consultation.<small>159 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/facilities</code></td>
+      <td class="title-cell"><strong>Hospital Facilities in Sangli | Deccan Malti Hospital</strong><small>53 characters · H1: Facilities at Deccan Malti</small></td>
+      <td class="description-cell">See the location, reception and patient-care spaces at Deccan Malti Hospital in Vishrambag, Sangli. Plan a visit on Sangli–Miraj Road and get directions.<small>153 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/faqs</code></td>
+      <td class="title-cell"><strong>Hospital FAQs | Deccan Malti Hospital, Sangli</strong><small>45 characters · H1: Frequently Asked Questions</small></td>
+      <td class="description-cell">Find answers about appointments, visiting, insurance and hospital services at Deccan Malti Hospital, Vishrambag, Sangli, before planning a patient visit.<small>153 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/gallery</code></td>
+      <td class="title-cell"><strong>Hospital Photo Gallery | Deccan Malti, Sangli</strong><small>45 characters · H1: Gallery</small></td>
+      <td class="description-cell">View photos of Deccan Malti Hospital in Vishrambag, Sangli, including its reception, patient guidance desk and patient-care spaces. Plan your visit today.<small>154 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/health-library</code></td>
+      <td class="title-cell"><strong>Health Articles &amp; Guides | Deccan Malti Hospital, Sangli</strong><small>56 characters · H1: Health Library</small></td>
+      <td class="description-cell">Read patient-friendly health articles from Deccan Malti Hospital, Sangli, covering brain, spine, heart, joints and general health for education and awareness.<small>158 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/insurance</code></td>
+      <td class="title-cell"><strong>Cashless Insurance Help in Sangli | Deccan Malti Hospital</strong><small>57 characters · H1: Insurance &amp; Cashless Assistance</small></td>
+      <td class="description-cell">Learn how to request insurance and cashless assistance at Deccan Malti Hospital in Sangli. Review documents, pre-authorisation and eligibility before admission.<small>160 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/leadership</code></td>
+      <td class="title-cell"><strong>Hospital Founders &amp; Leadership in Sangli | Deccan Malti</strong><small>55 characters · H1: Leadership</small></td>
+      <td class="description-cell">Meet Deccan Malti Hospital co-founders Dr. P. C. Patil and Dr. Rohan Patil in Sangli. Read about their general-surgery and neurosurgery roles and approach.<small>155 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/medical-disclaimer</code></td>
+      <td class="title-cell"><strong>Medical Disclaimer | Deccan Malti Hospital, Sangli</strong><small>50 characters · H1: Medical Disclaimer</small></td>
+      <td class="description-cell">Read the Deccan Malti Hospital medical disclaimer: website information is educational and does not replace advice, diagnosis or treatment from a qualified clinician.<small>165 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/patient-care</code></td>
+      <td class="title-cell"><strong>Patient Care Guide | Deccan Malti Hospital, Sangli</strong><small>50 characters · H1: Patient Care &amp; Information</small></td>
+      <td class="description-cell">Plan your visit to Deccan Malti Hospital, Sangli. Find guidance for appointments, admission and discharge, visitors, medical records and patient rights.<small>152 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/privacy-policy</code></td>
+      <td class="title-cell"><strong>Privacy Policy | Deccan Malti Hospital, Sangli</strong><small>46 characters · H1: Privacy Policy</small></td>
+      <td class="description-cell">Read how Deccan Malti Hospital in Sangli collects, uses and protects information submitted through this website and its online appointment and enquiry forms.<small>157 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/terms-conditions</code></td>
+      <td class="title-cell"><strong>Website Terms | Deccan Malti Hospital, Sangli</strong><small>45 characters · H1: Terms &amp; Conditions</small></td>
+      <td class="description-cell">Read the terms for using the Deccan Malti Hospital website, including guidance about online information, external links, enquiries and visitor responsibilities.<small>160 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/testimonials</code></td>
+      <td class="title-cell"><strong>Patient Reviews | Deccan Malti Hospital, Sangli</strong><small>47 characters · H1: Google Reviews</small></td>
+      <td class="description-cell">Read genuine, unedited patient reviews from Deccan Malti Hospital’s Google listing. Open Google to see the original wording, reviewer context and current reviews.<small>162 characters</small></td>
+    </tr>
+
+  <tr class="group-row"><th colspan="3">Departments <span>10 URLs</span></th></tr>
+  
+    <tr>
+      <td class="route"><code>/departments/cardiology</code></td>
+      <td class="title-cell"><strong>Cardiology in Sangli | Deccan Malti Hospital</strong><small>44 characters · H1: Cardiology in Sangli</small></td>
+      <td class="description-cell">Explore heart-care guidance in Sangli, including evaluation for chest pain, blood pressure, cholesterol and heart rhythm, at Deccan Malti Hospital.<small>147 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/colorectal-surgery</code></td>
+      <td class="title-cell"><strong>Colorectal Surgery in Sangli | Deccan Malti Hospital</strong><small>52 characters · H1: Colorectal Surgery in Sangli</small></td>
+      <td class="description-cell">Learn about colorectal surgery evaluation in Sangli for piles, fissures, fistulas and bowel concerns. See when to seek help and request a visit.<small>144 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/general-surgery</code></td>
+      <td class="title-cell"><strong>General Surgery in Sangli | Deccan Malti Hospital</strong><small>49 characters · H1: General Surgery in Sangli</small></td>
+      <td class="description-cell">Explore general surgery at Deccan Malti Hospital, Sangli, including assessment for hernia, gallbladder, appendix and other abdominal conditions.<small>144 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/nephrology</code></td>
+      <td class="title-cell"><strong>Nephrology in Sangli | Deccan Malti Hospital</strong><small>44 characters · H1: Nephrology in Sangli</small></td>
+      <td class="description-cell">Learn about kidney care in Sangli, including chronic kidney disease, diabetes-related risk, blood pressure and dialysis guidance at Deccan Malti Hospital.<small>154 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/neurology</code></td>
+      <td class="title-cell"><strong>Neurology in Sangli | Deccan Malti Hospital</strong><small>43 characters · H1: Neurology in Sangli</small></td>
+      <td class="description-cell">Explore neurology care in Sangli for brain, nerve and muscle conditions, including headache, epilepsy, stroke, movement disorders and neuropathy.<small>145 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/neurosurgery</code></td>
+      <td class="title-cell"><strong>Neurosurgery in Sangli | Deccan Malti Hospital</strong><small>46 characters · H1: Neurosurgery in Sangli</small></td>
+      <td class="description-cell">Read about neurosurgical evaluation in Sangli for brain, spine and nerve conditions at Deccan Malti Hospital. View care information and request a consultation.<small>159 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/oncology</code></td>
+      <td class="title-cell"><strong>Oncology in Sangli | Deccan Malti Hospital</strong><small>42 characters · H1: Oncology in Sangli</small></td>
+      <td class="description-cell">Learn how cancer evaluation, diagnosis coordination and treatment planning work at Deccan Malti Hospital in Sangli, with multi-speciality support.<small>146 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/orthopaedics-joint-replacement</code></td>
+      <td class="title-cell"><strong>Orthopaedics &amp; Joint Replacement in Sangli | Deccan Malti</strong><small>57 characters · H1: Orthopaedics &amp; Joint Replacement in Sangli</small></td>
+      <td class="description-cell">Explore orthopaedic care in Sangli for bone and joint concerns, fractures, arthritis and knee or hip replacement evaluation at Deccan Malti Hospital.<small>149 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/plastic-reconstructive-surgery</code></td>
+      <td class="title-cell"><strong>Plastic &amp; Reconstructive Surgery in Sangli | Deccan Malti</strong><small>57 characters · H1: Plastic &amp; Reconstructive Surgery in Sangli</small></td>
+      <td class="description-cell">Learn about reconstructive surgery evaluation in Sangli for injuries, wounds, burns and post-cancer reconstruction at Deccan Malti Hospital.<small>140 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/departments/urology</code></td>
+      <td class="title-cell"><strong>Urology in Sangli | Deccan Malti Hospital</strong><small>41 characters · H1: Urology in Sangli</small></td>
+      <td class="description-cell">Explore urology care in Sangli for kidney stones, prostate, urinary infection and bladder concerns. Review treatment guidance and request an appointment.<small>153 characters</small></td>
+    </tr>
+
+  <tr class="group-row"><th colspan="3">Doctor profiles <span>2 URLs</span></th></tr>
+  
+    <tr>
+      <td class="route"><code>/doctors/dr-p-c-patil</code></td>
+      <td class="title-cell"><strong>Dr. P. C. Patil, General Surgeon in Sangli | Deccan Malti</strong><small>57 characters · H1: Dr. P. C. Patil</small></td>
+      <td class="description-cell">Meet Dr. P. C. Patil, general surgeon and co-founder at Deccan Malti Hospital in Sangli. View his profile, experience and how to request a consultation.<small>152 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/doctors/dr-rohan-patil</code></td>
+      <td class="title-cell"><strong>Dr. Rohan Patil, Neurosurgeon in Sangli | Deccan Malti</strong><small>54 characters · H1: Dr. Rohan Patil</small></td>
+      <td class="description-cell">Meet Dr. Rohan Patil, neurosurgeon at Deccan Malti Hospital in Sangli. View his profile and brain and spine care information, then request a consultation.<small>154 characters</small></td>
+    </tr>
+
+  <tr class="group-row"><th colspan="3">Health articles <span>7 URLs</span></th></tr>
+  
+    <tr>
+      <td class="route"><code>/health-library/cancer-warning-signs</code></td>
+      <td class="title-cell"><strong>Cancer Warning Signs | Deccan Malti Hospital</strong><small>44 characters · H1: Cancer Warning Signs: What to Watch, and Why Early Evaluation Wins</small></td>
+      <td class="description-cell">Learn common cancer warning signs and when persistent changes need medical review. This patient-friendly guide explains why timely assessment matters.<small>150 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/health-library/diabetes-and-your-body</code></td>
+      <td class="title-cell"><strong>Diabetes: Protecting Your Health | Deccan Malti Hospital</strong><small>56 characters · H1: Diabetes: Protecting Your Eyes, Kidneys, Nerves and Heart</small></td>
+      <td class="description-cell">A practical guide to protecting your eyes, kidneys, nerves and heart with diabetes. Review routine checks and discuss your care plan with a clinician.<small>150 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/health-library/hernia-questions-answered</code></td>
+      <td class="title-cell"><strong>Hernia Questions Answered | Deccan Malti Hospital</strong><small>49 characters · H1: Hernia: The Questions Patients Ask, Answered Honestly</small></td>
+      <td class="description-cell">Learn what a hernia is, which symptoms need medical review and how treatment decisions are made, with clear answers to common patient questions.<small>144 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/health-library/joint-pain-when-to-worry</code></td>
+      <td class="title-cell"><strong>Joint Pain After 50 | Deccan Malti Hospital</strong><small>43 characters · H1: Joint Pain After 50: Arthritis, Ageing, and When Replacement Makes Sense</small></td>
+      <td class="description-cell">Learn about knee and hip pain after 50, arthritis and graded care options. See when symptoms merit a medical review or joint-replacement evaluation.<small>148 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/health-library/kidney-stones-guide</code></td>
+      <td class="title-cell"><strong>Kidney Stones: Care &amp; Prevention | Deccan Malti Hospital</strong><small>56 characters · H1: Kidney Stones: Treatment, and More Importantly, Prevention</small></td>
+      <td class="description-cell">Understand kidney-stone symptoms, treatment and prevention. Learn which warning signs, including fever with pain, need urgent medical attention.<small>144 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/health-library/stroke-warning-signs</code></td>
+      <td class="title-cell"><strong>Stroke Warning Signs and FAST | Deccan Malti Hospital</strong><small>53 characters · H1: Stroke: Warning Signs Every Family Should Recognise</small></td>
+      <td class="description-cell">Learn the FAST signs of stroke, what to do immediately and why time matters. This guide explains warning signs and the need for urgent emergency care.<small>150 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/health-library/understanding-back-pain</code></td>
+      <td class="title-cell"><strong>Back Pain: Warning Signs &amp; Care | Deccan Malti Hospital</strong><small>55 characters · H1: Back Pain: When Is It Serious, and When Will It Pass?</small></td>
+      <td class="description-cell">Most back pain improves, but weakness, numbness and bladder changes need assessment. Learn common warning signs, self-care basics and when to seek medical advice.<small>162 characters</small></td>
+    </tr>
+
+  <tr class="group-row"><th colspan="3">Patient care guides <span>5 URLs</span></th></tr>
+  
+    <tr>
+      <td class="route"><code>/patient-care/admission-discharge</code></td>
+      <td class="title-cell"><strong>Admission &amp; Discharge | Deccan Malti Hospital, Sangli</strong><small>53 characters · H1: Admission &amp; Discharge</small></td>
+      <td class="description-cell">Find practical admission and discharge guidance for patients and families at Deccan Malti Hospital, Sangli, including documents and the care team’s instructions.<small>161 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/patient-care/appointment</code></td>
+      <td class="title-cell"><strong>Appointment Guide | Deccan Malti Hospital, Sangli</strong><small>49 characters · H1: Appointment Guide</small></td>
+      <td class="description-cell">Prepare for a specialist appointment at Deccan Malti Hospital, Sangli. Find out how to request a visit, what to bring and how the team confirms a slot.<small>151 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/patient-care/medical-records</code></td>
+      <td class="title-cell"><strong>Medical Records | Deccan Malti Hospital, Sangli</strong><small>47 characters · H1: Medical Records</small></td>
+      <td class="description-cell">Learn how to ask Deccan Malti Hospital in Sangli about medical records, reports and the information patients may need for follow-up care.<small>137 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/patient-care/patient-rights-responsibilities</code></td>
+      <td class="title-cell"><strong>Patient Rights &amp; Responsibilities | Deccan Malti Hospital, Sangli</strong><small>65 characters · H1: Patient Rights &amp; Responsibilities</small></td>
+      <td class="description-cell">Read about patient rights, responsibilities and shared care decisions at Deccan Malti Hospital, Sangli, so patients and families know what to expect.<small>149 characters</small></td>
+    </tr>
+    <tr>
+      <td class="route"><code>/patient-care/visitor-information</code></td>
+      <td class="title-cell"><strong>Visitor Information | Deccan Malti Hospital, Sangli</strong><small>51 characters · H1: Visitor Information</small></td>
+      <td class="description-cell">Review visitor guidance before coming to Deccan Malti Hospital in Sangli, including where to ask for help and how to support a patient’s rest and privacy.<small>154 characters</small></td>
+    </tr>
+</tbody>
+  </table>
+  <p class="footnote">Routes are listed without a hostname because the production domain has not been supplied. Titles and descriptions above are the exact values returned by the local website at audit time.</p>
+</section>
+</body>
+</html>

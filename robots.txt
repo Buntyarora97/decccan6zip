@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /data/
+Disallow: /attached_assets/
+
+# The runtime-generated robots.php uses the site's configured canonical host.

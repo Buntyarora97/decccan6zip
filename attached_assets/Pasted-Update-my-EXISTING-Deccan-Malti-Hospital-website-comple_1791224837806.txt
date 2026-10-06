@@ -1,0 +1,484 @@
+Update my EXISTING Deccan Malti Hospital website completely according to the following instructions. Implement the changes in the existing project; do not stop after providing a plan.
+
+I have uploaded new hospital photographs inside a folder named `images 1`. I have also supplied reference screenshots and the hospital brochure. Inspect these assets carefully before making changes.
+
+This is the first phase of updates. Complete this phase properly before starting unrelated additions.
+
+1. WORK WITH THE EXISTING WEBSITE
+
+First inspect the existing project, pages, components, navigation, styling, image references and backend functionality.
+
+Keep the existing technology stack, working forms, integrations and routes. Improve the existing website instead of replacing it with an unrelated template.
+
+Preserve the hospital’s correct logo and brand identity. Use its existing blue, navy, green and white palette to create a polished, premium hospital website.
+
+Retain the existing service mega-menu design language, but organise its content into the three columns specified below.
+
+Make the changes consistent across desktop, tablet and mobile.
+
+2. INSPECT THE COMPLETE `images 1` FOLDER
+
+Locate the exact uploaded folder `images 1` in the project. Inspect every image visually, including images inside any subfolders.
+
+Do not assign photographs based only on their filenames. Identify what each photograph actually shows.
+
+Create an internal image inventory covering:
+- Filename and actual path.
+- Image dimensions and orientation.
+- Visible subject.
+- Suitable website section.
+- Whether it is a duplicate.
+- Whether the subject or room type is uncertain.
+
+Categorise the photographs wherever applicable:
+- Hospital exterior and entrance.
+- Reception and waiting area.
+- Doctors and staff.
+- Casualty.
+- ICU.
+- HDU.
+- General wards.
+- AC single/deluxe rooms.
+- Non-AC single/deluxe rooms.
+- Suite rooms.
+- Operation theatre.
+- Diagnostic equipment.
+- Pharmacy.
+- Physiotherapy and rehabilitation.
+- Corridors and other hospital interiors.
+
+Do not guess that a photograph shows an ICU, HDU, suite or particular machine when this is not visually clear or supported by its label. Use uncertain photographs in a general hospital gallery with a neutral caption.
+
+Use every distinct, suitable photograph from the new shoot at least once across relevant sections or the gallery. Avoid displaying duplicate files multiple times merely to increase the number of images.
+
+If the folder is missing, report the exact missing folder. Do not claim to have inspected it or invent image paths.
+
+3. REPLACE THE OLD HOSPITAL PHOTOGRAPHS
+
+Replace outdated hospital and generic stock photographs throughout the website with the relevant new photographs.
+
+Audit:
+- Homepage hero and sliders.
+- About section and About page.
+- Service and speciality sections.
+- Facilities sections.
+- Rooms and accommodation sections.
+- Relevant detail pages.
+- Gallery.
+- Existing image backgrounds and banners.
+
+Remove old photographs from visible website sections once appropriate new replacements are available.
+
+Preserve source files until all references are checked. Do not delete the hospital logo, verified doctor portraits or functional icons merely because they existed before this update.
+
+Do not introduce AI-generated hospital interiors or unrelated stock photographs.
+
+Where a new photograph is unavailable for a service, use a refined icon or text-led layout instead of an unrelated image.
+
+4. ABSOLUTELY NO IMAGE CROPPING
+
+This requirement is mandatory: show the complete photograph wherever a new hospital image appears.
+
+Do not cut off:
+- Hospital buildings or signage.
+- Faces or bodies.
+- Beds and room furniture.
+- Medical equipment.
+- Doors, room features or image edges.
+
+For standard photographs, use responsive natural proportions, such as:
+- width: 100%;
+- height: auto;
+- display: block.
+
+For fixed-size image areas:
+- Use object-fit: contain.
+- Centre the image.
+- Use a subtle white or brand-neutral background around any unused space.
+
+Do not use object-fit: cover, background-size: cover, clipping masks or zoom effects that hide any part of the image.
+
+Adapt the layout to the photograph’s original aspect ratio. Do not force portrait images into shallow landscape banners.
+
+For the hero, prefer a premium split layout with text on one side and the complete photograph on the other, if that is necessary to prevent cropping.
+
+Avoid putting text over important parts of the photograph.
+
+For cards, allow natural image heights or use contain-based frames. Consistent typography and spacing should provide visual order without cropping images.
+
+For the gallery:
+- Preserve original aspect ratios.
+- Open images in a responsive lightbox.
+- Show the full image in the lightbox.
+- Support close, next/previous and keyboard navigation.
+- Do not crop gallery thumbnails.
+
+Check image behaviour at 360px, 390px, 768px, 1024px and 1440px viewport widths.
+
+5. COMPLETE SERVICES MEGA MENU — THREE COLUMNS
+
+Use the existing website’s mega-menu styling, upgraded with refined spacing and typography.
+
+Include the complete service scope from BOTH the supplied brochure and screenshots. The shorter brochure list must not accidentally remove additional services shown in the supplied screenshots.
+
+Use these three main columns:
+
+COLUMN 1: CLINICAL SERVICES
+
+Within this column, show two clearly separated groups.
+
+Super Specialities:
+1. Neurosurgery
+2. Plastic & Reconstructive Surgery
+3. Colorectal Surgery
+4. Anorectal Surgery
+5. Joint Replacement
+6. Neurology
+7. Urology
+8. Oncology
+9. Nephrology
+
+Other Specialities:
+1. General Medicine
+2. General Surgery
+3. Laparoscopic Surgery
+4. Orthopaedics
+
+COLUMN 2: DIAGNOSTIC SERVICES
+
+1. Radiology
+2. CT Scan
+3. Digital X-Ray
+4. EEG
+5. NCV
+6. Pathology & Laboratory Services
+
+COLUMN 3: ALLIED & SUPPORTIVE SERVICES
+
+1. Pharmacy
+2. Physiotherapy & Rehabilitation Centre
+3. Ambulance Service
+
+Keep all these services accessible. Standardise duplicate names:
+- “Neuro Surgery” → “Neurosurgery”.
+- “Plastic Surgery” and “Plastic & Reconstructive Surgery” → one consistent service.
+- “Orthopedic” → “Orthopaedics”.
+- “Laboratory”, “Lab Service” and “Pathology” → one clearly named Pathology & Laboratory Services destination.
+- “Physiotherapy” and “Physiotherapy & Rehabilitation Centre” → one consistent destination.
+
+These naming improvements must not remove any service.
+
+Mega-menu behaviour:
+- Three clear columns on desktop.
+- Readable font sizes.
+- Adequate spacing between links.
+- Keyboard-accessible controls.
+- Open on click as well as appropriate pointer interaction.
+- Close using Escape and outside click.
+- Keep the panel within the viewport.
+- Allow internal scrolling where necessary on shorter screens.
+- Use expandable groups on mobile.
+- Do not depend on hover for mobile navigation.
+- Every item must lead to a working page or meaningful section.
+- No dead links or placeholder “#” links.
+
+6. SPECIALITIES AND SERVICE CONTENT
+
+Update the homepage, service overview and speciality pages so their content matches the navigation.
+
+Add a premium “Our Super Specialities” section containing all nine super specialities listed above.
+
+Use a balanced three-column desktop grid where appropriate, two columns on tablet and one column on mobile.
+
+Use consistent professional medical icons. Do not paste the reference screenshot as a replacement for real website content.
+
+Add a “Scope of Services” section that reflects the same three service categories as the mega menu.
+
+For each service:
+- Provide a concise, patient-friendly introduction.
+- Explain its general purpose without inventing hospital-specific procedures or capabilities.
+- Include an appropriate consultation or enquiry CTA.
+- Link to the correct existing page, or create a useful detail page in the existing architecture.
+- Use a relevant real photograph only where available.
+- Avoid repeating generic filler paragraphs across pages.
+
+Do not invent doctors, qualifications, success rates, treatment guarantees, awards or equipment.
+
+7. COMPLETE FACILITIES AND ROOM CATEGORIES
+
+Add ALL the following facilities:
+
+Emergency and Critical Care:
+1. Casualty / Emergency Care
+2. Intensive Care Unit — ICU
+3. High Dependency Unit — HDU
+
+Rooms and Accommodation:
+4. General Ward — Male
+5. General Ward — Female
+6. Single Room — AC / Deluxe AC Room
+7. Single Room — Non-AC / Deluxe Non-AC Room
+8. Suite Room
+
+Treat “AC room” and “Single Room — AC” as the same accommodation category unless the existing hospital information explicitly establishes separate categories.
+
+Treat “Non-AC room” and “Single Room — Non-AC” similarly.
+
+Correct “Suit room” to “Suite Room”.
+
+The owner supplied these figures:
+- HDU: 4.
+- Non-AC deluxe rooms: 5.
+- AC deluxe rooms: 4.
+- Suite rooms: 2.
+
+The units are not explicitly confirmed. Preserve these figures in internal implementation notes and check existing source material for whether they mean beds, rooms or units before publishing counts.
+
+If the units remain unclear, publish the facility categories without numerical capacity and list the count clarification in the final handover. Complete the rest of the website without blocking on this issue.
+
+No count was supplied for Casualty, ICU or the general wards. Do not invent one.
+
+Do not calculate the hospital’s total bed capacity from this partial list.
+
+8. FACILITIES PAGE DESIGN
+
+Create or improve the main Facilities page using this structure:
+
+A. Introduction
+A concise introduction to the hospital’s care environment with a suitable full-frame photograph.
+
+B. Emergency and Critical Care
+Separate cards or sections for:
+- Casualty / Emergency Care.
+- ICU.
+- HDU.
+
+Use short factual descriptions. Avoid claiming specific staffing ratios, equipment or continuous consultant presence unless verified.
+
+C. Rooms and Accommodation
+Separate cards for:
+- Male General Ward.
+- Female General Ward.
+- AC Single / Deluxe Room.
+- Non-AC Single / Deluxe Room.
+- Suite Room.
+
+Use correctly matched photographs.
+
+Do not invent amenities such as televisions, Wi-Fi, private bathrooms, attendant beds or meal services unless supported by the uploaded material or verified existing content.
+
+D. Advanced Infrastructure
+Include the verified brochure-listed facilities described below.
+
+E. Hospital Gallery
+Include all suitable new photographs, categorised where their subjects are known.
+
+F. Enquiry CTA
+Provide working actions for facility enquiries and room-related enquiries using existing verified contact details.
+
+Do not imply that a room enquiry confirms availability or makes a reservation.
+
+9. ADVANCED FACILITIES FROM THE BROCHURE
+
+Include these facilities in a refined infrastructure section:
+
+1. Modular Operation Theatre
+2. Pentero Surgical Microscope
+3. CUSA Technology
+4. In-house CT Scan
+5. Pathology & Laboratory Services
+6. 24/7 Pharmacy
+7. Physiotherapy & Rehabilitation Department
+8. Cashless Insurance Assistance
+9. Chief Minister’s Relief Fund — CMRF Guidance and Support
+
+Use clear, factual wording.
+
+For the Modular Operation Theatre:
+- Mention the modular OT and its air-filtration infrastructure.
+- The brochure mentions 5000 CFM; only carry that technical specification forward if consistent with current hospital information.
+- Do not publish the brochure’s “100 air changes per minute” wording without technical verification.
+- Do not promise “near-zero infection rates”.
+
+For the Pentero microscope:
+- Describe its role in magnified surgical visualisation.
+- Do not guarantee superior outcomes or unmatched safety.
+
+For CUSA:
+- Use “CUSA Technology” or “Cavitron Ultrasonic Surgical Aspirator”.
+- Do not repeat an absolute claim that surrounding tissue cannot be damaged.
+
+For insurance and CMRF:
+- Present these as assistance or guidance.
+- Mention that eligibility and approvals apply.
+- Do not guarantee cashless approval or financial assistance.
+- Do not invent insurer logos or partnerships.
+
+10. WHERE TO ADD THESE UPDATES
+
+Apply the updates consistently across:
+
+Homepage:
+- New hero photograph.
+- Updated hospital introduction.
+- All nine super specialities.
+- Complete service categories.
+- Casualty, ICU and HDU highlights.
+- Rooms and accommodation preview.
+- Advanced infrastructure highlights.
+- New hospital gallery preview.
+- Functional contact and appointment CTAs.
+
+About page:
+- Relevant exterior and interior photographs.
+- Consistent hospital identity.
+- Updated infrastructure and facilities summary.
+
+Services pages:
+- Complete service coverage.
+- Correct links and terminology.
+- Relevant photographs where available.
+
+Facilities page:
+- All critical-care, ward, room and infrastructure categories.
+
+Gallery page:
+- New shoot photographs.
+- Suitable filters.
+- Full-image lightbox.
+
+Header:
+- Complete three-column services mega menu.
+- Accessible Facilities and Gallery links.
+
+Footer:
+- Updated service and facility links.
+- Consistent verified contact details.
+
+Avoid adding duplicate sections if the existing website already has an appropriate section. Upgrade and populate the existing section instead.
+
+11. PREMIUM VISUAL DIRECTION
+
+The website should feel polished, credible and welcoming.
+
+Use:
+- Deep navy for important headings.
+- Hospital blue for primary actions.
+- Green for restrained highlights.
+- White and subtle pale backgrounds.
+- Generous spacing.
+- Clear typography hierarchy.
+- Refined borders and restrained shadows.
+- Consistent card styling.
+- High-quality real hospital photography.
+- Subtle transitions.
+
+Avoid:
+- Excessive gradients.
+- Heavy decorative effects.
+- Cartoon styling.
+- Flashy animations.
+- Crowded layouts.
+- Tiny text.
+- Repeated generic stock photographs.
+- Aggressive hover zooms.
+- Oversized empty image frames.
+
+Aim for a premium healthcare website that is easy for patients and families to use.
+
+12. HOSPITAL IDENTITY AND CONTACT ACCURACY
+
+Use the hospital’s existing verified brand name consistently. Supplied material identifies it as Deccan Malti Hospital, including the descriptor “Neuro, ICU & Superspeciality Hospital”.
+
+Preserve the correct logo.
+
+The supplied references contain differing contact details, including a number on the poster that appears shorter than a standard Indian mobile number. Do not silently replace working site contact details or repair a number by guessing.
+
+Cross-check contacts against existing verified website data. If unresolved, retain working verified contacts and report the discrepancy in the handover.
+
+Do not infer a new address, location or map destination.
+
+Preserve verified doctor details. Do not invent qualifications, consultation timings or availability.
+
+13. IMAGE PERFORMANCE AND IMPLEMENTATION
+
+Use the actual uploaded image paths.
+
+If images must be copied into the public asset directory for reliable serving:
+- Preserve originals.
+- Use descriptive filenames.
+- Update references consistently.
+- Handle spaces and filename casing correctly.
+- Avoid broken paths.
+
+Create optimised WebP or AVIF derivatives where supported, preserving the complete composition and original aspect ratio.
+
+Add appropriate image dimensions to prevent layout shifts.
+
+Use responsive image sizes where useful.
+
+Lazy-load below-the-fold photographs. Load the main hero image promptly.
+
+Do not upscale low-resolution images so aggressively that they become visibly blurred.
+
+Provide descriptive alt text based on the actual image contents. Do not use unsupported equipment names or room labels.
+
+Remove superseded image references from components, sliders, backgrounds and page content.
+
+14. FUNCTIONALITY AND ACCESSIBILITY
+
+Preserve all existing working functionality.
+
+Check:
+- Appointment forms.
+- Enquiry forms.
+- Contact buttons.
+- Telephone links.
+- Existing WhatsApp links.
+- Mobile navigation.
+- Service links.
+- Gallery filters.
+- Gallery lightbox.
+- Sticky header.
+- Back-to-top controls, if present.
+
+Forms must submit through the actual existing backend or integration. Do not display fake success messages.
+
+Keep visible keyboard focus, labelled form fields, readable contrast and adequate tap targets.
+
+Respect reduced-motion preferences.
+
+Do not introduce horizontal scrolling, overlapping navigation or floating buttons that cover important content.
+
+15. FINAL VERIFICATION
+
+Before declaring completion:
+
+- Confirm all nine super specialities are present.
+- Confirm General Medicine, General Surgery, Laparoscopic Surgery and Orthopaedics are present.
+- Confirm all six diagnostic entries are present.
+- Confirm Pharmacy, Physiotherapy & Rehabilitation and Ambulance Service are present.
+- Confirm Casualty, ICU and HDU are present.
+- Confirm male and female general wards are present.
+- Confirm AC, Non-AC and Suite room categories are present.
+- Confirm advanced infrastructure and patient-support facilities are included.
+- Confirm the desktop mega menu has three main columns.
+- Confirm the mobile menu works.
+- Confirm every service link works.
+- Confirm every suitable unique new photograph has been used or has a documented reason for exclusion.
+- Confirm old photographs have been replaced wherever suitable new photographs exist.
+- Confirm no photograph is cropped at any tested breakpoint.
+- Confirm no images are stretched or broken.
+- Confirm existing forms still work.
+- Run the project’s relevant build and existing checks.
+- Visually inspect key pages on desktop and mobile.
+
+Provide a concise final handover containing:
+1. Pages and sections updated.
+2. Services and facilities added.
+3. New image placement summary.
+4. Any excluded or uncertain photographs and the reason.
+5. Any unresolved capacity-unit or contact-detail discrepancies.
+6. Checks completed and any remaining issue.
+
+Complete the actual changes in the project. Do not finish with only recommendations, an implementation plan or placeholder content.

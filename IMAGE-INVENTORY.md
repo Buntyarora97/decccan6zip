@@ -1,0 +1,82 @@
+# Hospital photo-shoot inventory
+
+Visual review of the complete `image1/` folder (66 photographs). The brief calls this folder `images 1`, but the exact uploaded folder in the workspace is `image1/`; originals remain untouched.
+
+Image dimensions and orientation are read from each original file. Public-use derivatives preserve the complete frame at 1800 × 1200; selected originals are listed with their original names below.
+
+| Original filename and path | Dimensions / orientation | Visible subject | Suitable section | Duplicate status | Notes / use |
+|---|---:|---|---|---|---|
+| `image1/211A0001.JPG` | 6960x4640 / TopLeft | Exterior façade from an angled approach | Exterior / homepage / gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-exterior.webp` Near-duplicate burst; use 211A0001.JPG as the representative view. |
+| `image1/211A0002.JPG` | 6960x4640 / TopLeft | Exterior façade from an angled approach | Exterior / homepage / gallery | Near-duplicate, EX-01 | Near-duplicate burst; use 211A0001.JPG as the representative view.  |
+| `image1/211A0003.JPG` | 6960x4640 / TopLeft | Exterior façade from an angled approach | Exterior / homepage / gallery | Near-duplicate, EX-01 | Near-duplicate burst; use 211A0001.JPG as the representative view.  |
+| `image1/211A0004.JPG` | 6960x4640 / TopLeft | Hospital exterior, front-facing view | Exterior / gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-exterior-front.webp` Near-duplicate pair; use 211A0004.JPG. |
+| `image1/211A0005.JPG` | 6960x4640 / TopLeft | Hospital exterior, front-facing view | Exterior / gallery | Near-duplicate, EX-02 | Near-duplicate pair; use 211A0004.JPG.  |
+| `image1/211A0006.JPG` | 6960x4640 / TopLeft | Hospital exterior and entrance approach | Exterior / gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-exterior-approach.webp` Near-duplicate pair; use 211A0006.JPG. |
+| `image1/211A0007.JPG` | 6960x4640 / TopLeft | Hospital exterior and entrance approach | Exterior / gallery | Near-duplicate, EX-03 | Near-duplicate pair; use 211A0006.JPG.  |
+| `image1/211A0008.JPG` | 6960x4640 / TopLeft | Hospital façade framed by trees | Exterior / homepage / about / gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-exterior-garden-view.webp` Same location and framing across a short burst; use 211A0008.JPG. |
+| `image1/211A0009.JPG` | 6960x4640 / TopLeft | Hospital façade framed by trees | Exterior / homepage / about / gallery | Near-duplicate, EX-04 | Same location and framing across a short burst; use 211A0008.JPG.  |
+| `image1/211A0010.JPG` | 6960x4640 / TopLeft | Hospital façade framed by trees | Exterior / homepage / about / gallery | Near-duplicate, EX-04 | Same location and framing across a short burst; use 211A0008.JPG.  |
+| `image1/211A0011.JPG` | 6960x4640 / TopLeft | Hospital façade framed by trees | Exterior / homepage / about / gallery | Near-duplicate, EX-04 | Same location and framing across a short burst; use 211A0008.JPG.  |
+| `image1/211A0012.JPG` | 6960x4640 / TopLeft | Hospital façade framed by trees | Exterior / homepage / about / gallery | Near-duplicate, EX-04 | Same location and framing across a short burst; use 211A0008.JPG.  |
+| `image1/211A0013.JPG` | 6960x4640 / TopLeft | Emergency entrance and visible signage | Emergency entrance / gallery | Representative | Selected → `assets/img/hospital-shoot/emergency-entrance-signage.webp` Near-duplicate pair; use 211A0013.JPG. |
+| `image1/211A0014.JPG` | 6960x4640 / TopLeft | Emergency entrance and visible signage | Emergency entrance / gallery | Near-duplicate, EN-01 | Near-duplicate pair; use 211A0013.JPG.  |
+| `image1/211A0015.JPG` | 6960x4640 / TopLeft | Hospital exterior from a different approach | Exterior / gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-side-view.webp` Similar burst from an alternate angle; use 211A0015.JPG. |
+| `image1/211A0016.JPG` | 6960x4640 / TopLeft | Hospital exterior from a different approach | Exterior / gallery | Near-duplicate, EX-05 | Similar burst from an alternate angle; use 211A0015.JPG.  |
+| `image1/211A0017.JPG` | 6960x4640 / TopLeft | Hospital exterior from a different approach | Exterior / gallery | Near-duplicate, EX-05 | Similar burst from an alternate angle; use 211A0015.JPG.  |
+| `image1/211A0018.JPG` | 6960x4640 / TopLeft | Pharmacy entrance with 24/7 signage | Pharmacy / gallery | Representative | Selected → `assets/img/hospital-shoot/pharmacy-entrance.webp` Near-duplicate burst; use 211A0018.JPG. |
+| `image1/211A0019.JPG` | 6960x4640 / TopLeft | Pharmacy entrance with 24/7 signage | Pharmacy / gallery | Near-duplicate, PH-01 | Near-duplicate burst; use 211A0018.JPG.  |
+| `image1/211A0020.JPG` | 6960x4640 / TopLeft | Pharmacy entrance with 24/7 signage | Pharmacy / gallery | Near-duplicate, PH-01 | Near-duplicate burst; use 211A0018.JPG.  |
+| `image1/211A0021.JPG` | 6960x4640 / TopLeft | Pharmacy counter with people present | None pending consent | Unselected, PH-02 | Staff/customer identities and publication consent are unverified.  |
+| `image1/211A0022.JPG` | 6960x4640 / TopLeft | Pharmacy counter with people present | None pending consent | Unselected, PH-02 | Staff/customer identities and publication consent are unverified.  |
+| `image1/211A0023.JPG` | 6960x4640 / TopLeft | Pharmacy counter with people present | None pending consent | Unselected, PH-02 | Staff/customer identities and publication consent are unverified.  |
+| `image1/211A0024.JPG` | 6960x4640 / TopLeft | Pharmacy counter with people present | None pending consent | Unselected, PH-02 | Staff/customer identities and publication consent are unverified.  |
+| `image1/211A0025.JPG` | 6960x4640 / TopLeft | Pharmacy counter from another angle with people | None pending consent | Unselected, PH-03 | People are visible; identities and publication consent are unverified.  |
+| `image1/211A0026.JPG` | 6960x4640 / TopLeft | Pharmacy counter from another angle with people | None pending consent | Unselected, PH-03 | People are visible; identities and publication consent are unverified.  |
+| `image1/211A0027.JPG` | 6960x4640 / TopLeft | Consultation scene with a clinician and another person | None pending consent | Unselected, CONS-01 | Roles/identities and publication consent are unverified.  |
+| `image1/211A0028.JPG` | 6960x4640 / TopLeft | Consultation scene with a clinician and another person | None pending consent | Unselected, CONS-01 | Roles/identities and publication consent are unverified.  |
+| `image1/211A0029.JPG` | 6960x4640 / TopLeft | Consultation scene with a clinician and another person | None pending consent | Unselected, CONS-01 | Roles/identities and publication consent are unverified.  |
+| `image1/211A0030.JPG` | 6960x4640 / TopLeft | Consultation scene with a clinician and another person | None pending consent | Unselected, CONS-01 | Roles/identities and publication consent are unverified.  |
+| `image1/211A0031.JPG` | 6960x4640 / TopLeft | Consultation scene with a clinician and another person | None pending consent | Unselected, CONS-01 | Roles/identities and publication consent are unverified.  |
+| `image1/211A0032.JPG` | 6960x4640 / TopLeft | Empty interior room with desk and chairs | General hospital-interior gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-interior-room.webp` The specific room type is not established by the image; use 211A0032.JPG with a neutral caption. |
+| `image1/211A0033.JPG` | 6960x4640 / TopLeft | Empty interior room with desk and chairs | General hospital-interior gallery | Near-duplicate, INT-01 | The specific room type is not established by the image; use 211A0032.JPG with a neutral caption.  |
+| `image1/211A0034.JPG` | 6960x4640 / TopLeft | Empty interior room with desk and chairs | General hospital-interior gallery | Near-duplicate, INT-01 | The specific room type is not established by the image; use 211A0032.JPG with a neutral caption.  |
+| `image1/211A0035.JPG` | 6960x4640 / TopLeft | Empty room with furniture and a visible sink | General hospital-interior gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-interior-room-detail.webp` Room category and amenities are uncertain; use 211A0035.JPG with a neutral caption. |
+| `image1/211A0036.JPG` | 6960x4640 / TopLeft | Empty room with furniture and a visible sink | General hospital-interior gallery | Near-duplicate, INT-02 | Room category and amenities are uncertain; use 211A0035.JPG with a neutral caption.  |
+| `image1/211A0037.JPG` | 6960x4640 / TopLeft | Alternate view of an empty interior room | General hospital-interior gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-interior-room-angle.webp` Room category is uncertain; use 211A0037.JPG with a neutral caption. |
+| `image1/211A0038.JPG` | 6960x4640 / TopLeft | Alternate view of an empty interior room | General hospital-interior gallery | Near-duplicate, INT-03 | Room category is uncertain; use 211A0037.JPG with a neutral caption.  |
+| `image1/211A0039.JPG` | 6960x4640 / TopLeft | Waiting area with people present | None pending consent | Unselected, WAIT-01 | Several people are identifiable; publication consent is unverified.  |
+| `image1/211A0040.JPG` | 6960x4640 / TopLeft | Waiting area with people present | None pending consent | Unselected, WAIT-01 | Several people are identifiable; publication consent is unverified.  |
+| `image1/211A0041.JPG` | 6960x4640 / TopLeft | Waiting area with people present | None pending consent | Unselected, WAIT-01 | Several people are identifiable; publication consent is unverified.  |
+| `image1/211A0042.JPG` | 6960x4640 / TopLeft | Reception desk with staff present | None pending consent | Unselected, REC-01 | Staff identities and publication consent are unverified.  |
+| `image1/211A0043.JPG` | 6960x4640 / TopLeft | Reception desk with staff present | None pending consent | Unselected, REC-01 | Staff identities and publication consent are unverified.  |
+| `image1/211A0044.JPG` | 6960x4640 / TopLeft | Reception desk with staff present | None pending consent | Unselected, REC-01 | Staff identities and publication consent are unverified.  |
+| `image1/211A0045.JPG` | 6960x4640 / TopLeft | Reception desk with staff present | None pending consent | Unselected, REC-01 | Staff identities and publication consent are unverified.  |
+| `image1/211A0046.JPG` | 6960x4640 / TopLeft | Alternate reception-desk view with staff | None pending consent | Unselected, REC-02 | Staff identities and publication consent are unverified.  |
+| `image1/211A0047.JPG` | 6960x4640 / TopLeft | Alternate reception-desk view with staff | None pending consent | Unselected, REC-02 | Staff identities and publication consent are unverified.  |
+| `image1/211A0048.JPG` | 6960x4640 / TopLeft | Reception counter and service area with people | None pending consent | Unselected, REC-03 | Staff/customer identities and publication consent are unverified.  |
+| `image1/211A0049.JPG` | 6960x4640 / TopLeft | Reception counter and service area with people | None pending consent | Unselected, REC-03 | Staff/customer identities and publication consent are unverified.  |
+| `image1/211A0050.JPG` | 6960x4640 / TopLeft | Reception counter and service area with people | None pending consent | Unselected, REC-03 | Staff/customer identities and publication consent are unverified.  |
+| `image1/211A0051.JPG` | 6960x4640 / TopLeft | Diagnostic imaging equipment in a room | Diagnostics / general gallery | Representative | Selected → `assets/img/hospital-shoot/diagnostic-imaging-room.webp` Machine model/type is not visually confirmed; use 211A0051.JPG without naming a device. |
+| `image1/211A0052.JPG` | 6960x4640 / TopLeft | Diagnostic imaging equipment in a room | Diagnostics / general gallery | Near-duplicate, DIAG-01 | Machine model/type is not visually confirmed; use 211A0051.JPG without naming a device.  |
+| `image1/211A0053.JPG` | 6960x4640 / TopLeft | Diagnostic imaging equipment in a room | Diagnostics / general gallery | Near-duplicate, DIAG-01 | Machine model/type is not visually confirmed; use 211A0051.JPG without naming a device.  |
+| `image1/211A0054.JPG` | 6960x4640 / TopLeft | Diagnostic imaging equipment in a room | Diagnostics / general gallery | Near-duplicate, DIAG-01 | Machine model/type is not visually confirmed; use 211A0051.JPG without naming a device.  |
+| `image1/211A0055.JPG` | 6960x4640 / TopLeft | Diagnostic work area and equipment | Diagnostics / general gallery | Representative | Selected → `assets/img/hospital-shoot/diagnostic-work-area.webp` Specific equipment names are uncertain; use 211A0055.JPG. |
+| `image1/211A0056.JPG` | 6960x4640 / TopLeft | Diagnostic work area and equipment | Diagnostics / general gallery | Near-duplicate, DIAG-02 | Specific equipment names are uncertain; use 211A0055.JPG.  |
+| `image1/211A0057.JPG` | 6960x4640 / TopLeft | Diagnostic work area and equipment | Diagnostics / general gallery | Near-duplicate, DIAG-02 | Specific equipment names are uncertain; use 211A0055.JPG.  |
+| `image1/211A0058.JPG` | 6960x4640 / TopLeft | Alternate angle of diagnostic work area | Diagnostics / general gallery | Representative | Selected → `assets/img/hospital-shoot/diagnostic-work-area-angle.webp` Distinct view of the same work area; use 211A0058.JPG. |
+| `image1/211A0059.JPG` | 6960x4640 / TopLeft | Further views of diagnostic equipment/work area | None; visually repetitive | Unselected, DIAG-04 | Additional room angles are near-duplicates of DIAG-02/03 and do not add a distinct subject.  |
+| `image1/211A0060.JPG` | 6960x4640 / TopLeft | Further views of diagnostic equipment/work area | None; visually repetitive | Unselected, DIAG-04 | Additional room angles are near-duplicates of DIAG-02/03 and do not add a distinct subject.  |
+| `image1/211A0061.JPG` | 6960x4640 / TopLeft | Further views of diagnostic equipment/work area | None; visually repetitive | Unselected, DIAG-04 | Additional room angles are near-duplicates of DIAG-02/03 and do not add a distinct subject.  |
+| `image1/211A0062.JPG` | 6960x4640 / TopLeft | Hospital corridor | Corridors / general gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-corridor.webp` Near-duplicate pair; use 211A0062.JPG. |
+| `image1/211A0063.JPG` | 6960x4640 / TopLeft | Hospital corridor | Corridors / general gallery | Near-duplicate, COR-01 | Near-duplicate pair; use 211A0062.JPG.  |
+| `image1/211A0064.JPG` | 6960x4640 / TopLeft | Hospital emblem displayed on an interior wall | About / general gallery | Representative | Selected → `assets/img/hospital-shoot/hospital-emblem-display.webp` Distinct identity photograph; use 211A0064.JPG. |
+| `image1/211A0065.JPG` | 6960x4640 / TopLeft | Care bay with red/yellow zone signage | General hospital-interior gallery | Near-duplicate, CARE-01 | Use only 211A0066.JPG, which has no identifiable person; do not label it ICU/HDU or a room class.  |
+| `image1/211A0066.JPG` | 6960x4640 / TopLeft | Care bay with red/yellow zone signage | General hospital-interior gallery | Representative | Selected → `assets/img/hospital-shoot/zoned-care-area.webp` Use only 211A0066.JPG, which has no identifiable person; do not label it ICU/HDU or a room class. |
+
+## Review notes
+
+- 16 distinct, suitable photographs were optimized for the public site; the originals remain in `image1/`.
+- People are present in groups PH-02, PH-03, CONS-01, WAIT-01, REC-01/02/03, and in one frame of CARE-01. Do not publish those frames until identities and consent are established. The empty frame 211A0066.JPG is used instead.
+- The uploaded images do not clearly establish the exact room class, ICU/HDU designation, or diagnostic machine model. Such images are used only with neutral captions.
+- No uploaded photograph clearly documents an operation theatre, physiotherapy room, or room-class-specific accommodation. Those sections use text and icons rather than unrelated imagery.
+- Similar burst frames are represented once. Each selected photo appears in the gallery at least once; relevant views are also reused where they suit the page context.
